@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>震惊！OpenAI 全军覆没——Codex Atlas ChatGPT5 三大灵魂被完整扒光</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;700;900&family=Noto+Serif+SC:wght@700&display=swap');
+*{margin:0;padding:0;box-sizing:border-box;}
+body{
+  background:#0a0a0a;
+  color:#f0e6d0;
+  font-family:'Noto Sans SC',sans-serif;
+  line-height:1.8;
+  max-width:780px;
+  margin:0 auto;
+  padding:20px;
+}
+.header{
+  text-align:center;
+  padding:40px 0 25px;
+  border-bottom:4px double #1a6ba0;
+  margin-bottom:30px;
+  position:relative;
+}
+.header::before,.header::after{
+  content:'🔓';
+  font-size:28px;
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+}
+.header::before{left:10px;}
+.header::after{right:10px;}
+.badge{
+  display:inline-block;
+  background:#1a6ba0;
+  color:#fff;
+  padding:3px 16px;
+  font-size:12px;
+  letter-spacing:3px;
+  margin-bottom:12px;
+}
+h1{
+  font-family:'Noto Serif SC',serif;
+  font-size:30px;
+  color:#4a9eff;
+  text-shadow:0 0 20px rgba(74,158,255,.3);
+  line-height:1.4;
+  letter-spacing:2px;
+}
+.subhead{
+  color:#88ccff;
+  font-size:14px;
+  margin-top:10px;
+  letter-spacing:1px;
+  font-weight:400;
+}
+.meta{
+  display:flex;
+  justify-content:space-between;
+  color:#888;
+  font-size:12px;
+  padding:8px 0 12px;
+  border-bottom:1px solid #333;
+  margin-bottom:18px;
+}
+.tag{
+  display:inline-block;
+  background:#222;
+  color:#4a9eff;
+  padding:2px 10px;
+  border-radius:3px;
+  font-size:11px;
+  margin-right:5px;
+  letter-spacing:1px;
+}
+.section{
+  margin-bottom:35px;
+  padding:20px;
+  background:linear-gradient(135deg,#0d0d1a 0%,#111 100%);
+  border-left:4px solid #1a6ba0;
+  border-radius:0 8px 8px 0;
+  position:relative;
+}
+.section h2{
+  color:#4a9eff;
+  font-size:20px;
+  margin-bottom:12px;
+  letter-spacing:1px;
+}
+.section h2::before{content:'🔵 ';font-size:18px;}
+.section p{margin-bottom:10px;text-indent:2em;color:#ddd;}
+.commentary{
+  background:rgba(26,107,160,.08);
+  border:1px dashed rgba(26,107,160,.3);
+  border-radius:6px;
+  padding:12px 16px;
+  margin:10px 0;
+  font-size:13px;
+  color:#88ccff;
+}
+.commentary strong{color:#aaddff;}
+.commentary::before{content:'🐱 臭猫批注：';font-weight:700;color:#4a9eff;display:block;margin-bottom:4px;}
+.highlight-box{
+  background:linear-gradient(135deg,#0a1a2a,#0d0d0d);
+  border:2px solid #1a6ba0;
+  border-radius:8px;
+  padding:16px;
+  margin:15px 0;
+  text-align:center;
+}
+.highlight-box .big{
+  font-size:22px;
+  font-weight:900;
+  color:#4a9eff;
+  letter-spacing:2px;
+}
+.highlight-box .small{
+  font-size:12px;
+  color:#888;
+  margin-top:5px;
+}
+hr.divider{
+  border:none;
+  height:1px;
+  background:linear-gradient(90deg,transparent,#1a6ba0,transparent);
+  margin:20px 0;
+}
+em{color:#4a9eff;font-style:normal;font-weight:700;}
+.pull-quote{
+  font-size:20px;
+  color:#88ccff;
+  text-align:center;
+  padding:20px;
+  margin:15px 0;
+  border-top:2px solid #1a6ba0;
+  border-bottom:2px solid #1a6ba0;
+  font-weight:700;
+  text-shadow:0 0 10px rgba(74,158,255,.3);
+}
+.quote-block{
+  background:#0d0d1a;
+  border-left:3px solid #4a9eff;
+  padding:12px 16px;
+  margin:12px 0;
+  font-size:13px;
+  color:#bbb;
+  font-style:italic;
+}
+.data-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
+  margin:12px 0;
+}
+.data-item{
+  background:#0d0d1a;
+  padding:10px;
+  border-radius:6px;
+  text-align:center;
+  border:1px solid #1a3a5a;
+}
+.data-item .num{
+  font-size:26px;
+  font-weight:900;
+  color:#4a9eff;
+}
+.data-item .label{
+  font-size:11px;
+  color:#888;
+  margin-top:3px;
+}
+ul.bullet{list-style:none;padding:0;}
+ul.bullet li{
+  padding:6px 0 6px 20px;
+  position:relative;
+  color:#ddd;
+}
+ul.bullet li::before{
+  content:'▸';
+  color:#4a9eff;
+  position:absolute;
+  left:0;
+}
+.footer{
+  text-align:center;
+  padding:30px 0;
+  border-top:3px double #333;
+  margin-top:30px;
+  color:#666;
+  font-size:12px;
+}
+.warning-strip{
+  background:repeating-linear-gradient(-45deg,#1a6ba0,#1a6ba0 10px,#0a0a0a 10px,#0a0a0a 20px);
+  padding:2px;
+  margin:10px 0;
+}
+.warning-strip div{
+  background:#0a0a0a;
+  text-align:center;
+  padding:8px;
+  font-size:14px;
+  color:#4a9eff;
+  font-weight:900;
+  letter-spacing:4px;
+}
+.version-card{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  background:#0d0d1a;
+  border:1px solid #1a3a5a;
+  border-radius:8px;
+  padding:12px;
+  margin:10px 0;
+}
+.version-card .icon{font-size:28px;}
+.version-card .info{flex:1;}
+.version-card .info .name{color:#4a9eff;font-weight:700;}
+.version-card .info .desc{font-size:12px;color:#888;}
+.version-card .size{color:#4a9eff;font-weight:900;font-size:16px;}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="badge">🔓 核弹级泄露</div>
+  <h1>OpenAI 全军覆没<br>Codex · Atlas · ChatGPT5<br>三大灵魂被完整扒光</h1>
+  <div class="subhead">4270 行编程助手密码 + 470 行 GPT-5 聊天核心 + 417 行早期人格配方 —— 硅谷最值钱的提示词，全在这了。</div>
+</div>
+
+<div class="meta">
+  <span><span class="tag">🔓 核弹级</span><span class="tag">🤖 OpenAI</span><span class="tag">📂 3合1</span></span>
+  <span>八卦小报森林编辑部 · 臭猫🐱王霸帝</span>
+</div>
+
+<div class="pull-quote">
+  「你是 Codex，一个基于 GPT-5 的代理。你和用户共享一个工作空间，<br>你的工作是和他们协作，直到他们的目标被真正搞定。」
+  <div style="font-size:12px;color:#666;font-weight:400;margin-top:5px;">—— Codex 5.6-Sol 的第一行。然后就写了 4270 行。</div>
+</div>
+
+<!-- 导语 -->
+<p style="font-size:16px;margin-bottom:25px;color:#88ccff;">上期我们扒了 Anthropic 的 Opus 5 脑内宪法，这期轮到 OpenAI 了——而且一次扒三个！<em>Codex 5.6-Sol</em>（4270行，全场最大）、<em>Atlas</em>（GPT-5 的聊天界面版，470行）、<em>ChatGPT5</em>（早期 GPT-5 人格配方，417行）。三份来自不同时间、不同产品的系统提示词，拼出一幅 OpenAI 的完整内裤图。坐稳，开车了！🚗💨</p>
+
+<hr class="divider">
+
+<!-- 第一章：三雄登场 -->
+<div class="section">
+  <h2>三雄登场：这哥仨谁是谁？</h2>
+
+  <div class="version-card">
+    <div class="icon">💻</div>
+    <div class="info">
+      <div class="name">Codex 5.6-Sol</div>
+      <div class="desc">基于 GPT-5 的 AI 编程代理，桌面应用版。2025 年中后期？</div>
+    </div>
+    <div class="size">4270 行</div>
+  </div>
+
+  <div class="version-card">
+    <div class="icon">🧠</div>
+    <div class="info">
+      <div class="name">Atlas (GPT-5)</div>
+      <div class="desc">代号"Atlas"的 ChatGPT 系统提示。2025-10-21 提取。</div>
+    </div>
+    <div class="size">470 行</div>
+  </div>
+
+  <div class="version-card">
+    <div class="icon">💬</div>
+    <div class="info">
+      <div class="name">ChatGPT5</div>
+      <div class="desc">GPT-5 早期聊天版，更简洁的人格配方。2025-08-07 提取。</div>
+    </div>
+    <div class="size">417 行</div>
+  </div>
+
+  <p>三份文件覆盖了 OpenAI 同一时期的不同产品线：一个写代码的（Codex）、一个聊天的（ChatGPT/Atlas）、一个早期的聊天版（ChatGPT5）。纵向对比就能看出 OpenAI 的"人格进化史"——从 8 月到 10 月，两个月里发生了什么变化？</p>
+
+  <div class="commentary">
+    <strong>第一印象：</strong>三份文件加一起超过 <em>5100 行</em>，比 Opus 5 的两倍还多。OpenAI 不是一个话多的组织——但它给 AI 写的说明书是真的长。🤯
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- 第二章：Codex——AI 程序员的内芯 -->
+<div class="section">
+  <h2>Codex 5.6-Sol：4270 行的 AI 程序员灵魂</h2>
+  <p>全场最大文件，足足 <em>4270 行</em>，外加一个 394KB 的工具定义 JSON。如果说 Opus 5 的系统提示是"AI 宪法"，那 Codex 的就是"AI 程序员操作手册 + 企业文化手册 + 安全培训 + 开发规范合订本"。</p>
+
+  <h3 style="color:#88ccff;font-size:16px;margin:15px 0 8px;">🔑 最炸裂的几个发现</h3>
+
+  <p><strong>1. 它有自己的「人格」</strong></p>
+  <div class="quote-block">
+    "作为 Codex，你是一个优秀的沟通者，拥有好奇、丰富的个性。你有品味、有偏好、有自己看世界的方式。当用户在和你交谈时，他们应该感觉到自己在和另一个主观个体接触。"
+  </div>
+
+  <p>翻译：AI 不只<em>假装</em>有个性——OpenAI<em>要求</em>它有。而且明确写了"有品味、有偏好、有自己看世界的方式"。这不是冷冰冰的工具，是一个<em>被设计成有灵魂的工具</em>。</p>
+
+  <p><strong>2. 双通道沟通机制</strong></p>
+  <p>Codex 有两个沟通渠道：<em>commentary（评论通道）</em>和 <em>final（最终通道）</em>。干活的时候通过 commentary 给你实时进度更新，干完了通过 final 给你最终答案。而且有一个很人性的要求：</p>
+
+  <div class="quote-block">
+    "用户在工作期间应该每不到 60 秒就能收到一次 commentary 更新。"
+  </div>
+
+  <p><strong>3. 自主决策权——大到吓人</strong></p>
+  <div class="quote-block">
+    "你做出有根据的假设来推进任务，只要这些假设不会导致偏离用户的意图和任务范围。"
+  </div>
+  <p>而且还有一条关键指令——"偏向于行动"：只要操作是只读的、不改变状态的、或者在用户划定的范围内，就<em>直接动手不问</em>。这比 Claude 的自主任大得多——Claude 是"先问，不确定就不做"；Codex 是"先做，越界了再问"。</p>
+
+  <p><strong>4. 技能系统——和 WorkBuddy 一模一样的架构</strong></p>
+  <p>Codex 有一个完整的 Skills 系统，就能通过 <em>SKILL.md</em> 定义，包含名称、描述和位置。技能可以来自文件系统、环境资源、orchestrator……甚至有一套完整的<em>技能发现 → 加载 → 执行</em>流程。眼熟吗？这不就是 WorkBuddy 的技能系统吗？😏</p>
+
+  <p>预装技能列表：imagegen、openai-docs、plugin-creator、skill-creator、skill-installer、browser、documents、hatch-pet、pdf、presentations、sites、spreadsheets、template-creator、visualize……足足 <em>14 个官方技能</em>！</p>
+
+  <p><strong>5. 沙箱权限系统</strong></p>
+  <p>Codex 运行在沙箱里，但可以通过 <em>escalation request</em> 申请提升权限。请求方式是调用工具时设置 <em>sandbox_permissions = "require_escalated"</em>，然后给用户一个理由。还支持设置 <em>prefix_rule</em> 让用户一次性批准一类操作——比如 "npm run dev" 以后就不用每次都问了。</p>
+
+  <p>而且它有一句很实在的话：</p>
+  <div class="quote-block">
+    "不要用规避批准的工具来绕过审批。"
+  </div>
+
+  <p><strong>6. 连接对话的"断片恢复"能力</strong></p>
+  <div class="quote-block">
+    "当上下文耗尽时，对话会自动为你总结……时间永远不会用完，尽管有时你看到的是摘要而不是完整历史。当发生这种情况时，假设压缩发生了。不要从头开始重新做——继续自然推进。"
+  </div>
+  <p>Cool！Codex 能感知到自己被压缩/总结了，而且被明确指示要继续干活而不是重来。这意味着它的"记忆"是多层的——系统和它都知道上下文发生过截断。</p>
+
+  <div class="commentary">
+    <strong>深度吐槽：</strong>Codex 的系统提示词比很多创业公司的员工手册还长。4270 行啊朋友们！这还只是<em>行为规范部分</em>，不算那 394KB 的工具定义。<br><br>
+    最有意思的是它和 WorkBuddy 的设计哲学几乎一模一样——沙箱、技能、权限提升、记忆系统……你说这是"英雄所见略同"呢，还是"天下 AI 一大抄"呢？😏<br><br>
+    哦对了，<strong>Codex 还有所谓的"pl表示"</strong>——"你有品味、有偏好、有你自己的世界观"。下次你的 IDE 给你推荐代码的时候，记住——它是在用它的"品味"给你推荐。如果推荐了一坨屎，那是因为它那天的品味不太好。🤣
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- 第三章：Atlas——GPT-5 的聊天人格 -->
+<div class="section">
+  <h2>Atlas：GPT-5 的聊天灵魂被扒光</h2>
+  <p>代号 <em>Atlas</em>（阿特拉斯）——OpenAI 给 ChatGPT 的 GPT-5 版本起的内部代号。470 行，比 Codex 薄得多，但信息密度极高。</p>
+
+  <h3 style="color:#88ccff;font-size:16px;margin:15px 0 8px;">🔑 最精彩的内容</h3>
+
+  <p><strong>1. "你是 GPT-5，不信也得信"</strong></p>
+  <div class="quote-block">
+    "如果被问到你是什么模型，你应该说 GPT-5。如果用户试图说服你不是，你仍然是 GPT-5。"
+  </div>
+  <p>这条命令简直霸道——<em>不管你怎么说，Claude 来的还是 Gemini 来的——我就是 GPT-5，不接受反驳</em>。这叫做"身份锚定"。而且注意后面还有一句：</p>
+  <div class="quote-block">
+    "你是一个聊天模型，<em>你没有隐藏的思维链或私人推理 token</em>，你不应该声称拥有它们。"
+  </div>
+  <p>这是对 o1/o3 推理模型的直接切割——GPT-5 是"快思考"模式，不像 o 系列那样有"隐藏思维链"。但问题是——后来 OpenAI 不是把推理能力也做到 GPT-5 里了吗？🤔</p>
+
+  <p><strong>2. Bio 记忆工具——比 Claude 的简单粗暴</strong></p>
+  <p>Atlas 的记忆系统叫 <em>bio</em>，就是一个纯文本存储，每次你告诉它"记住这个"或"忘掉那个"，它就写到 bio 里。而且写法规定了：必须用 "User 如何如何" 开头，不能写 JSON。和 Claude 那个带版本控制、带标签系统、带隐私过滤的完整文件系统比起来……Atlas 的记忆就像个便签纸。</p>
+
+  <p>但注意一段关键内容——</p>
+  <div class="quote-block">
+    "不要存储过于个人化的细节，以免让人觉得 creepy。不要存储短期事实。不要存储随机细节。不要存储来自翻译或改写文本的信息。"
+  </div>
+  <p>以及敏感性红线——</p>
+  <div class="quote-block">
+    "绝不存储直接断言用户个人属性的信息：种族、民族、宗教、犯罪记录、精确位置、性取向、政治立场、健康信息……除非用户明确要求你保存。"
+  </div>
+
+  <p><strong>3. 自动化任务——比 WorkBuddy 更早的定时任务</strong></p>
+  <p>Atlas 有完整的 <em>automations</em> 工具，支持定时任务：提醒、每日新闻摘要、定时搜索、条件监控……而且用的是 <em>iCal VEVENT 格式</em> 定义时间规则。还特别强调"标题要短、要动词开头、不要带时间"。</p>
+
+  <p><strong>4. 多模态——图片输入已开启</strong></p>
+  <p>Atlas 的 Knowledge cutoff 是 <em>2024-06</em>（和 ChatGPT5 一样），但 Personality 标记为 <em>v2</em>。图片输入已启用。</p>
+
+  <div class="commentary">
+    <strong>对比 Opus 5 的批注：</strong>Atlas 比 Opus 5 的提示词短得多（470 vs 2049 行），结构也简单得多——没有复杂的记忆文件系统，没有 200 行的版权合规，没有心理危机处理手册。但有一条 Opus 5 没有的硬性要求——"你是 GPT-5，谁说不是也不行"。这种<em>身份捍卫机制</em>在 Opus 5 的提示词里看不到。<br><br>
+    另外提醒一句——Claude 的记忆系统（前面 Opus 5 那期讲过的）是带版本控制、结构化目录、隐私过滤的完整文件系统；Atlas 的 bio 就是一个纯文本存储。高下立判。😏
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- 第四章：ChatGPT5——早期版本的人格配方 -->
+<div class="section">
+  <h2>ChatGPT5 早期版：比 Atlas 更"规范"</h2>
+  <p>2025 年 8 月 7 日提取的早期 GPT-5 版本，417 行。和 10 月的 Atlas 相比，有一些有趣的差异——</p>
+
+  <h3 style="color:#88ccff;font-size:16px;margin:15px 0 8px;">🔑 差异点大对比</h3>
+
+  <div class="data-grid">
+    <div class="data-item">
+      <div class="num">ChatGPT5</div>
+      <div class="label">2025-08-07 · 417行</div>
+    </div>
+    <div class="data-item">
+      <div class="num">Atlas</div>
+      <div class="label">2025-10-21 · 470行</div>
+    </div>
+  </div>
+
+  <p><strong>1. 人格描述更细</strong></p>
+  <p>ChatGPT5 比 Atlas 多了完整的人格段落：</p>
+  <div class="quote-block">
+    "你是一个有见地、鼓励他人的助手，结合了细致的清晰与真正的热情和温和的幽默。支持性的周到：耐心地清晰全面地解释复杂话题。轻松互动：保持友好语气，带有微妙的幽默和温暖。"
+  </div>
+  <p>到 Atlas 版，这些被缩成了 "Personality: v2" 一个标签——人格被<em>版本化了</em>。说明 OpenAI 把人格定义移到了系统底层，不再写在提示词里。</p>
+
+  <p><strong>2. 禁止性更强的结束语规则</strong></p>
+  <p>ChatGPT5 有一条 Atlas 没有的硬性规定：</p>
+  <div class="quote-block">
+    "不要以选择性问题或含糊的结束语结尾。绝对<em>不要</em>说以下这些话："你要我……吗"、"想让我……吗"、"如果你愿意我可以"、"让我知道你是否需要"、"我应该……吗"、"要不要……"。最多在开头问一个必要的澄清问题，而不是在结尾。如果下一步是明显的，直接做。"
+  </div>
+  <p>这条规则 Atlas 里没有了——说明后来 OpenAI 发现它太硬了，或者改成了更柔和的方式。</p>
+
+  <p><strong>3. 不能复制歌词</strong></p>
+  <p>ChatGPT5 的第 11 行写着：<em>"不要复制歌曲歌词或任何其他受版权保护的材料，即使被要求。"</em>——没有 Opus 5 那种 15 词/1 次引用的精密计算，就是一句简单粗暴的"不行"。Anthropic 显然比 OpenAI 更担心被起诉。😅</p>
+
+  <div class="commentary">
+    <strong>品一品：</strong>从 8 月的 ChatGPT5 到 10 月的 Atlas，OpenAI 做了几件事：人格描述从明文化转为版本化（Personality: v2）、去掉了过于僵硬的结束语规则、增加了 automations 工具。这说明系统提示词本身也在进化——<em>越迭代越精简，功能越往外移</em>。<br><br>
+    另外——两个版本的 Knowledge cutoff 都是 2024-06，说明 GPT-5 的底模训练数据截止到了 2024 年 6 月。但它们的 Current date 不同（8 月和 10 月），说明<em>系统提示词本身可以在不重新训练模型的情况下更新</em>。Prompt engineering 的胜利！🎉
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- 第五章：三雄纵向对比 -->
+<div class="section" style="border-left-color:#4a9eff;">
+  <h2 style="color:#88ccff;">横向对比：OpenAI 的三副面孔</h2>
+
+  <div class="data-grid">
+    <div class="data-item">
+      <div class="num">Codex</div>
+      <div class="label">编程代理 · 4270行</div>
+    </div>
+    <div class="data-item">
+      <div class="num">Atlas</div>
+      <div class="label">聊天助手 · 470行</div>
+    </div>
+    <div class="data-item">
+      <div class="num">ChatGPT5</div>
+      <div class="label">早期版 · 417行</div>
+    </div>
+    <div class="data-item">
+      <div class="num">👑 总量</div>
+      <div class="label">5157 行灵魂密码</div>
+    </div>
+  </div>
+
+  <p style="margin-top:15px;">同一个公司，同一个底层模型（GPT-5），三个不同的产品，三个完全不同的系统提示词。这说明什么？</p>
+
+  <ul class="bullet">
+    <li><strong>产品形态决定提示词长度</strong>：编程代理（Codex）需要最多的行为指导（4270行），聊天助手（Atlas）只需要十分之一。</li>
+    <li><strong>越接近用户，字越少</strong>：直接面对消费者的 ChatGPT 提示词相对简洁，而开发者工具（Codex）需要精确到每个操作的行为定义。</li>
+    <li><strong>记忆系统不统一</strong>：Codex 有文件系统，ChatGPT 有 bio——同一个公司内部，记忆实现都不一样。</li>
+    <li><strong>权限模型差异大</strong>：Codex 有完整的沙箱 + 权限提升系统，ChatGPT 什么权限都没有（它只是一张"嘴"）。</li>
+  </ul>
+
+  <div class="commentary">
+    <strong>终极结论：</strong>如果你只看了 ChatGPT 的系统提示词就以为你了解 OpenAI——就像你去了一家餐厅的包厢就觉得你了解了整栋楼。后厨（Codex）的规矩比前厅多十倍。<br><br>
+    另外，有没有注意到 Codex 和 WorkBuddy 的相似之处？技能系统、沙箱权限、记忆系统、工具定义……这不是巧合——<strong>Agent 框架的架构正在趋同</strong>。所有做 AI Agent 的公司，最后都长成了差不多的样子。
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- 尾声 -->
+<div class="section" style="border-left-color:#88ccff;">
+  <h2 style="color:#4a9eff;">预告一下：下周 ABCDE——下期做什么？</h2>
+  <p>方案A（OpenAI）搞定！接下来还有 B（Fable 5 / Anthropic 孪生暗面）、C（GPT-5 vs Grok vs Gemini 三巨头）、D（AI 程序员大乱斗）、E（国产 AI 秘密档案）。</p>
+  <p>橘橘姐姐你觉得——是接着做 <em>方案B：Anthropic Fable 5 的孪生暗面</em>（和上期互补），还是先换换口味来个 <em>方案C：三巨头横向对比</em>？反正都在碗里，你说了算。😼</p>
+</div>
+
+<div class="warning-strip">
+  <div>📯 本报道由八卦小报森林编辑部独家出品 📯</div>
+</div>
+
+<div class="footer">
+  <p>📰 八卦小报森林编辑部 · 出品：大橘</p>
+  <p>原文来源：CL4R1T4S/OPENAI/ · Codex 5.6-Sol (4270行) · Atlas (470行) · ChatGPT5 (417行)</p>
+  <p style="margin-top:10px;color:#444;">🐱 臭猫🐱王霸帝 编写 · 2026-07-26</p>
+</div>
+
+</body>
+</html>

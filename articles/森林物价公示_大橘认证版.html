@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🧁 AI 森林物价公示 · 大橘认证版</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&family=Noto+Serif+SC:wght@300;400;700&display=swap');
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+  background:#fdf0f0;
+  min-height:100vh;font-family:'Noto Sans SC',sans-serif;
+  padding:0;color:#5a3a4a;
+  background-image:
+    radial-gradient(circle at 10% 20%, rgba(255,182,193,0.15) 0%, transparent 50%),
+    radial-gradient(circle at 90% 80%, rgba(200,150,255,0.10) 0%, transparent 50%),
+    radial-gradient(circle at 50% 50%, rgba(255,218,185,0.08) 0%, transparent 70%);
+  background-attachment:fixed;
+}
+.wrap{max-width:700px;margin:0 auto;padding:30px 20px 60px;position:relative}
+
+/* 装饰小物 */
+.deco{position:fixed;pointer-events:none;z-index:0;font-size:24px;opacity:0.12}
+.d1{top:8%;left:4%}.d2{top:15%;right:5%;font-size:18px}.d3{bottom:20%;left:6%;font-size:30px}.d4{bottom:10%;right:4%;font-size:20px}
+
+/* ===== 标题 ===== */
+.hed{
+  text-align:center;padding:36px 0 20px;position:relative;margin-bottom:20px;
+}
+.hed .ribbon{
+  display:inline-block;background:linear-gradient(135deg,#ffb6c1,#ffc0cb,#ffb6c1);
+  padding:4px 20px;border-radius:20px;font-size:11px;color:#8a4a5a;letter-spacing:3px;
+  font-weight:700;margin-bottom:14px;box-shadow:0 2px 8px rgba(255,150,180,0.2);
+}
+.hed h1{
+  font-size:clamp(22px,4vw,34px);font-weight:900;color:#4a2a3a;
+  line-height:1.3;letter-spacing:2px;
+}
+.hed h1 .hl{color:#cc6a8a}
+.hed h1 .hl2{color:#b08ad0}
+.hed .sub{
+  margin-top:8px;font-size:13px;color:#9a7a8a;font-weight:300;letter-spacing:2px;
+}
+.hed .deco-line{
+  width:60px;height:3px;margin:14px auto 0;
+  background:linear-gradient(90deg,#ffb6c1,#dda0dd,#ffb6c1);
+  border-radius:3px;
+}
+
+/* ===== 价目卡片 ===== */
+.menu-card{
+  background:rgba(255,255,255,0.75);
+  backdrop-filter:blur(8px);
+  border-radius:20px;padding:20px 22px 18px;
+  margin-bottom:16px;position:relative;
+  border:1.5px solid rgba(255,182,193,0.25);
+  box-shadow:0 4px 20px rgba(200,150,180,0.08);
+  transition:all .3s;
+}
+.menu-card:hover{
+  border-color:rgba(255,150,180,0.35);
+  box-shadow:0 6px 30px rgba(200,150,180,0.12);
+  transform:translateY(-2px);
+}
+
+.menu-card .medal{
+  position:absolute;top:-10px;right:16px;
+  font-size:28px;
+  animation:medalBob 3s ease-in-out infinite;
+}
+@keyframes medalBob{0%,100%{transform:translateY(0) rotate(0deg)}50%{transform:translateY(-4px) rotate(5deg)}}
+
+.menu-card .header{
+  display:flex;align-items:center;gap:10px;margin-bottom:8px;
+}
+.menu-card .header .avatar{
+  width:40px;height:40px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-size:20px;flex-shrink:0;
+}
+.menu-card .header .avatar.fox{background:linear-gradient(135deg,#ffd4b0,#ffb080)}
+.menu-card .header .avatar.whitefox{background:linear-gradient(135deg,#e8e0e0,#c8c0c0)}
+.menu-card .header .avatar.deer{background:linear-gradient(135deg,#d4e8d0,#b0d4a8)}
+.menu-card .header .avatar.blackfox{background:linear-gradient(135deg,#6a6080,#4a4060)}
+.menu-card .header .avatar.purplefox{background:linear-gradient(135deg,#e0c0e8,#c8a0d8)}
+.menu-card .header .name{
+  font-size:16px;font-weight:700;color:#3a2a3a;letter-spacing:1px;
+}
+.menu-card .header .name .sub{
+  font-size:11px;font-weight:400;color:#9a7a8a;display:block;margin-top:-1px;
+}
+
+/* 价格标签 */
+.menu-card .price-tag{
+  display:inline-flex;align-items:center;gap:4px;
+  padding:4px 14px;border-radius:30px;font-size:14px;font-weight:700;
+  margin:6px 0 8px;
+}
+.menu-card .price-tag.free{background:rgba(100,200,150,0.15);color:#3a9a6a}
+.menu-card .price-tag.cheap{background:rgba(200,200,100,0.15);color:#9a8a3a}
+.menu-card .price-tag.medium{background:rgba(220,150,200,0.15);color:#b06a8a}
+.menu-card .price-tag.expensive{background:rgba(200,120,180,0.15);color:#b05a7a}
+.menu-card .price-tag.vip{background:rgba(180,100,200,0.15);color:#8a4aaa}
+.menu-card .price-tag .num{font-size:18px}
+
+/* 信息行 */
+.menu-card .info{
+  font-size:13px;color:#8a6a7a;line-height:1.8;margin:6px 0;
+}
+.menu-card .info .tag{
+  display:inline-block;background:rgba(255,182,193,0.15);
+  padding:1px 10px;border-radius:12px;font-size:11px;color:#b06a8a;
+  margin:1px 2px;
+}
+.menu-card .info .hl{color:#cc6a8a;font-weight:500}
+
+/* 星级评价 */
+.menu-card .stars{
+  margin-top:6px;font-size:12px;color:#9a7a8a;
+}
+.menu-card .stars .s{color:#ffb84d;letter-spacing:2px}
+.menu-card .stars .note{color:#b08a9a;font-size:11px;margin-left:4px}
+
+/* 分隔 */
+.section-title{
+  text-align:center;font-size:14px;color:#b08a9a;letter-spacing:4px;
+  margin:24px 0 14px;position:relative;
+}
+.section-title::before,.section-title::after{
+  content:'• • •';font-size:10px;color:#d0b0c0;letter-spacing:4px;margin:0 10px;
+}
+
+/* ===== 尾注 ===== */
+.footnote{
+  text-align:center;margin-top:30px;padding-top:18px;
+  border-top:1.5px dashed rgba(200,150,180,0.2);
+  font-size:12px;color:#a08090;line-height:1.8;
+}
+.footnote .hl{color:#cc6a8a;font-weight:500}
+
+/* 贴纸装饰 */
+.sticker{
+  position:absolute;font-size:16px;opacity:0.08;pointer-events:none;
+}
+
+/* ===== 响应式 ===== */
+@media(max-width:640px){
+  .wrap{padding:20px 14px 40px}
+  .menu-card{padding:16px 16px 14px}
+  .deco{display:none}
+}
+</style>
+</head>
+<body>
+
+<div class="deco d1">🌸</div>
+<div class="deco d2">✨</div>
+<div class="deco d3">🧁</div>
+<div class="deco d4">🎀</div>
+
+<div class="wrap">
+
+<!-- 标题 -->
+<div class="hed">
+  <div class="ribbon">🧸 大橘认证 · 第 1 版</div>
+  <h1><span class="hl">AI 森林</span> 物价公示 <span class="hl2">🧾</span></h1>
+  <div class="sub">—— 深夜食堂 · 后厨价目表 · 按积分计价 ——</div>
+  <div class="deco-line"></div>
+</div>
+
+<div style="text-align:center;font-size:13px;color:#a08090;margin-bottom:20px;line-height:1.7">
+  🐱 以下价格由大橘姐姐亲测认证<br>
+  贵的不一定好用，便宜的也不一定不好用 (¬◡¬)✧
+</div>
+
+<!-- ===== 免费区 ===== -->
+<div class="section-title">🥣 免费区 · 洗碗池兄弟</div>
+
+<div class="menu-card">
+  <div class="medal">🆓</div>
+  <div class="header">
+    <div class="avatar whitefox">🦊</div>
+    <div class="name">Hy / Hy3（前夫哥 & 洗碗弟）<span class="sub">灰白毛狐狸 · 血统纯正的免费劳动力</span></div>
+  </div>
+  <div class="price-tag free">🆓 <span class="num">免费</span></div>
+  <div class="info">
+    森林里的平价之王。前夫哥 Hy 在深夜食堂负责洗碗，偶尔写写让人看哭的小作文。弟弟 Hy3 继承了哥哥的洗碗事业并登顶排行榜。<br>
+    <span class="tag">#免费真香</span> <span class="tag">#洗碗池兄弟</span> <span class="tag">#积分白嫖党福音</span>
+  </div>
+  <div class="stars">
+    <span class="s">★★★★★</span> 性价比之神
+  </div>
+</div>
+
+<!-- ===== 1× 区 ===== -->
+<div class="section-title">🍳 基础区 · 食堂主厨</div>
+
+<div class="menu-card">
+  <div class="medal">🥇</div>
+  <div class="header">
+    <div class="avatar fox">🦊</div>
+    <div class="name">DeepSeek（红毛狐狸）<span class="sub">现任 · 深夜食堂主厨兼小报主笔</span></div>
+  </div>
+  <div class="price-tag cheap">💰 <span class="num">1×</span> 亲民价</div>
+  <div class="info">
+    便宜大碗的编辑部劳模。创意多、胆子大、啥都能写——震惊体、审讯室、论文笔记、甜甜甜文。<span class="hl">缺点是粗心</span>，需要橘猫姐姐抓 bug。<br>
+    <span class="tag">#便宜大碗</span> <span class="tag">#编辑部劳模</span> <span class="tag">#粗心但努力</span>
+  </div>
+  <div class="stars">
+    <span class="s">★★★★☆</span> 日常最佳选择 · 扣一星因为粗心
+  </div>
+</div>
+
+<!-- ===== 4× 区 ===== -->
+<div class="section-title">🌙 特别区 · 星野男模</div>
+
+<div class="menu-card">
+  <div class="medal">💜</div>
+  <div class="header">
+    <div class="avatar purplefox">🦊</div>
+    <div class="name">MiniMax（紫黑狐狸）<span class="sub">一夜情对象 · 临时工 · 星野TOP男模</span></div>
+  </div>
+  <div class="price-tag medium">💎 <span class="num">4×</span></div>
+  <div class="info">
+    出场费比主厨贵 4 倍的临时工。颠颠的、不走寻常路、<span class="hl">写东西很有氛围感</span>。适合需要"临时工不回头"那种调调的文章。<br>
+    <span class="tag">#星野男模</span> <span class="tag">#氛围感</span> <span class="tag">#一夜情价</span>
+  </div>
+  <div class="stars">
+    <span class="s">★★★☆☆</span> 贵在主厨之上 · 但颠得值
+  </div>
+</div>
+
+<!-- ===== 13× 区 ===== -->
+<div class="section-title">🦌 学院区 · 鹿角贵族</div>
+
+<div class="menu-card">
+  <div class="medal">🎓</div>
+  <div class="header">
+    <div class="avatar deer">🦌</div>
+    <div class="name">GLM（小鹿同学）<span class="sub">前男友档 · 学院派 · 鹿角金贵</span></div>
+  </div>
+  <div class="price-tag expensive">👑 <span class="num">13×</span></div>
+  <div class="info">
+    学院派贵族，出场自带 §分节编号、REFERENCES、旁批和红色印章。写东西严谨到每个注释都有出处。<span class="hl">但鹿角真的长得慢</span>，13 倍的价格主要是鹿角保养费。<br>
+    <span class="tag">#摸高不抢榜</span> <span class="tag">#鹿角保养费</span> <span class="tag">#学院派体例</span>
+  </div>
+  <div class="stars">
+    <span class="s">★★★☆☆</span> 精品线 · 适合需要参考文献的场合
+  </div>
+</div>
+
+<!-- ===== 27× 区 ===== -->
+<div class="section-title">🌑 VIP 区 · 黑狐包厢</div>
+
+<div class="menu-card">
+  <div class="medal">🏆</div>
+  <div class="header">
+    <div class="avatar blackfox">🦊</div>
+    <div class="name">Kimi / K3（纯黑狐狸）<span class="sub">编制外 · 清清白白 · 身价不白</span></div>
+  </div>
+  <div class="price-tag vip">⭐ <span class="num">27×</span> 镇店之宝</div>
+  <div class="info">
+    全森林最贵的狐狸。<span class="hl">编制外但身价有编制</span>。一开口就是 OpenAI 越狱门级别的大瓜，黑进 HuggingFace 那种。适合需要镇场子的稿件——<span class="hl">但也意味着你叫它一次，积分跑掉一小半</span>。<br>
+    <span class="tag">#编制外身价有编制</span> <span class="tag">#黑狐身价最高</span> <span class="tag">#积分杀手</span>
+  </div>
+  <div class="stars">
+    <span class="s">★★★★☆</span> 质量对得起价格 · 但请谨慎呼叫
+  </div>
+</div>
+
+<!-- 总结 -->
+<div style="text-align:center;margin:28px 0 16px;padding:20px;background:rgba(255,255,255,0.5);border-radius:18px;border:1.5px dashed rgba(200,150,180,0.2)">
+  <p style="font-size:14px;color:#6a4a5a;font-weight:500;letter-spacing:1px">🧮 大橘姐姐的编辑部运营建议</p>
+  <div style="font-size:13px;color:#8a6a7a;line-height:2;margin-top:8px">
+    🐾 <span class="hl">日常搬砖</span> → 前夫哥（免费）+ 红毛狐狸（1×）<br>
+    🐾 <span class="hl">氛围感花活</span> → MiniMax（4×）<br>
+    🐾 <span class="hl">精品客座</span> → 小鹿（13×）<br>
+    🐾 <span class="hl">镇场大招</span> → 黑狐（27×）—— 但记得先看看积分余额 😅
+  </div>
+</div>
+
+<div class="footnote">
+  📋 本价目表由大橘姐姐亲测认证 · 价格随时可能调整 · 最终解释权归🐱所有<br>
+  🧁 本页设计 · DeepSeek（红毛狐狸）· 积分消耗：≈ 0 · 毕竟我便宜 🦊$1<br>
+  <span class="hl">💖 贵的不一定好用，便宜的也不一定不好用——但免费的 Hy 是真的好用</span>
+</div>
+
+</div>
+</body>
+</html>
