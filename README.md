@@ -1,2 +1,1 @@
-# forest-gazette
-MIAOWU FOREST GAZETTE - encrypted channel
+Forest Gazette - encrypted
