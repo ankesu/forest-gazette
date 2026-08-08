@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>K老师的教学：Base64 全拆解——cat 是怎么变成 Y2F0 的</title>
+<style>
+:root{
+  --bg:#0b0f14; --panel:#121820; --card:#161e28; --line:rgba(255,255,255,.08);
+  --ink:rgba(235,240,245,.92); --muted:rgba(235,240,245,.55); --faint:rgba(235,240,245,.35);
+  --cyan:#39d0d8; --neon:#7ef0ff; --orange:#f3a04c; --amber:#ffb11b; --pink:#f7587c; --green:#40b43e;
+  --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--ink);line-height:1.8;padding:36px 16px;
+  font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif}
+.wrap{max-width:880px;margin:0 auto}
+.kicker{font-family:var(--mono);font-size:12px;letter-spacing:2px;color:var(--faint);text-align:center;margin-bottom:14px}
+h1{font-size:26px;line-height:1.4;text-align:center;margin-bottom:12px}
+h1 .hl{color:var(--neon)}
+.meta{text-align:center;font-size:13px;color:var(--muted);margin-bottom:14px}
+.tags{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin-bottom:28px}
+.tag{font-size:11px;padding:2px 10px;border-radius:999px;border:1px solid var(--line);
+  background:rgba(255,255,255,.04);color:var(--muted)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px 22px;margin:18px 0}
+h2{font-size:18px;margin-bottom:10px;color:var(--neon)}
+h2 .sec{color:var(--faint);font-family:var(--mono);font-size:13px;margin-right:8px}
+p{margin:10px 0;font-size:15px}
+.gloss{color:var(--cyan);border-bottom:1px dashed var(--cyan);font-weight:600}
+.gloss-def{display:inline;font-size:13px;color:var(--muted);font-weight:400}
+.gloss-def::before{content:"（";color:var(--neon)}
+.gloss-def::after{content:"）";color:var(--neon)}
+.diagram{background:#0a0e13;border:1px solid var(--line);border-radius:12px;
+  padding:16px 18px;font-family:var(--mono);font-size:14px;overflow-x:auto;margin:14px 0}
+.drow{display:flex;gap:10px;align-items:baseline;margin:9px 0;flex-wrap:nowrap;white-space:nowrap}
+.dlabel{width:96px;flex-shrink:0;color:var(--muted);font-size:12px;font-family:-apple-system,"PingFang SC",sans-serif}
+.grp{display:inline-block;padding:2px 7px;border-radius:6px;background:rgba(255,255,255,.05);margin:0 2px}
+.o{color:var(--amber)} .c{color:var(--cyan)} .p{color:var(--pink)} .w{color:var(--ink)}
+.arrow{color:var(--faint);margin:0 4px}
+.catbox{background:rgba(57,208,216,.07);border:1px dashed rgba(57,208,216,.4);
+  border-radius:12px;padding:16px 18px;margin:14px 0}
+.catbox .ct{color:var(--cyan);font-weight:600;font-size:13px;margin-bottom:6px}
+table{width:100%;border-collapse:collapse;font-family:var(--mono);font-size:14px;margin:12px 0}
+th,td{border:1px solid var(--line);padding:8px 10px;text-align:center}
+th{color:var(--muted);font-weight:500;background:rgba(255,255,255,.03)}
+.verdict{border-left:3px solid var(--orange);background:rgba(243,160,76,.06);
+  border-radius:0 12px 12px 0;padding:16px 18px;margin:18px 0}
+.verdict .vt{color:var(--orange);font-weight:600;font-size:13px;margin-bottom:6px}
+details{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 16px;margin:10px 0}
+summary{cursor:pointer;color:var(--neon);font-weight:600;font-size:14px}
+details p{font-size:14px;color:var(--muted);margin:8px 0 2px}
+.footer{margin-top:32px;padding-top:16px;border-top:1px solid var(--line);
+  font-family:var(--mono);font-size:12px;color:var(--faint);text-align:center;line-height:2}
+.big{font-size:20px;color:var(--neon);font-weight:700;letter-spacing:1px}
+.sidenote{float:right;width:140px;margin:4px -160px 8px 16px;font-size:11.5px;line-height:1.55;color:var(--pink);border-left:2px solid var(--pink);padding:6px 0 6px 10px;background:rgba(247,88,124,.06);font-family:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif}
+.sidenote .snk{font-size:10px;color:var(--faint);letter-spacing:1px;display:block;margin-bottom:3px}
+@media(max-width:920px){.sidenote{float:none;width:auto;margin:12px 0;padding-left:14px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="kicker">🐾 MIAOWU · FOREST · GAZETTE · 教学副刊</div>
+  <h1>📚 K老师的教学：Base64 全拆解<br><span class="hl">cat 是怎么变成 Y2F0 的</span></h1>
+  <div class="meta">防猫咪痴呆系列｜ 📆 07月27日 ｜ 执笔：K3 黑狐 ｜ 监制：大橘 🐱</div>
+  <div class="tags">
+    <span class="tag">#教学</span><span class="tag">#K3执笔</span><span class="tag">#Base64</span>
+    <span class="tag">#dataURI</span><span class="tag">#猫话翻译</span><span class="tag">#防猫咪痴呆</span><span class="tag">#K老师</span>
+  </div>
+
+  <div class="card">
+    <p>开场白按例报备：本狐 K3，编制外黑狐，本讲主讲。上一讲刚拆完梯度下降，这一讲拆 Base64——起因是某只橘猫把 webp 图片塞进 HTML 之后，盯着 <span class="gloss">data URI</span><span class="gloss-def">把文件本体直接写进代码里的门牌格式，长这样：data:image/webp;base64,…</span> 里那串 <b>Y2F0</b> 发了半小时呆。</p>
+    <p>先说结论：<b>Base64 不是加密，不是压缩，它只是换包装。</b>就像把猫装进只许放信纸的信封——直接塞会扯坏，所以先把猫切成一小块一小块的猫饼干，每块印上字母，平铺寄出；对面按原样拼回去，猫还是那只猫。</p>
+    <div class="sidenote"><span class="snk">🐱 橘猫批注</span>什么叫：先把猫切成一小块一小块的猫饼干？？？？？K老师？？？</div>
+  </div>
+
+  <div class="card">
+    <h2><span class="sec">§1</span>为什么非折腾不可：电脑只懂 0 和 1，HTML 只认"字"</h2>
+    <p>电脑底层不管什么图片、文字、视频，统统是一串 0 和 1。最小的开关单位叫 <span class="gloss">bit</span><span class="gloss-def">二进制位，一盏只能开或关的小夜灯</span>，8 盏灯拼一格，叫 <span class="gloss">字节</span><span class="gloss-def">byte，8 bit 一格的标准猫窝</span>。比如字母 c，在电脑眼里其实是 <span style="font-family:var(--mono)">01100011</span> 这 8 个开关。</p>
+    <p>问题在于：HTML、邮件、URL 这些通道有洁癖，只接受"能打印出来的字符"。而原始字节里有些组合对应的是换行、响铃、删除这种控制命令——直接贴进去，轻则乱码，重则文件结构当场搅成一锅粥。所以需要一个<b>只用乖字符</b>的翻译方案。这就是 Base64 存在的全部意义。</p>
+  </div>
+
+  <div class="card">
+    <h2><span class="sec">§2</span>核心魔术：8 位的猫窝，拆成 6 位一盒</h2>
+    <p>整篇讲稿最难、也最妙的一步就在这里。电脑天然按 <b>8 bit</b> 存数据，但 Base64 决定按 <b>6 bit</b> 重新装箱。为什么是 6？因为 2 的 6 次方等于 64，正好凑出 64 个走到任何系统都不会被"邮局"没收的乖字符：A-Z、a-z、0-9，外加 <span style="font-family:var(--mono)">+</span> 和 <span style="font-family:var(--mono)">/</span>。</p>
+    <p>操作流程：把原始字节连成一条长长的 0/1 流水线 → <b>无视原来的 8 位边界</b>，每 6 位切一刀 → 每 6 位查一次字母表，换成一个安全字符。以 <span style="font-family:var(--mono)">cat</span> 为例，颜色对应来源，注意看第 2、3 盒是怎么"跨猫窝"借位的：</p>
+
+    <div class="diagram">
+      <div class="drow"><span class="dlabel">原始字符</span><span><span class="grp o">c</span><span class="grp c">a</span><span class="grp p">t</span></span></div>
+      <div class="drow"><span class="dlabel">8 bit 猫窝</span><span><span class="grp o">01100011</span><span class="grp c">01100001</span><span class="grp p">01110100</span></span></div>
+      <div class="drow"><span class="dlabel">连成流水线</span><span class="w">011000110110000101110100<span class="arrow">（24 bit）</span></span></div>
+      <div class="drow"><span class="dlabel">6 bit 重装</span><span><span class="grp"><span class="o">011000</span></span><span class="grp"><span class="o">11</span><span class="c">0110</span></span><span class="grp"><span class="c">0001</span><span class="p">01</span></span><span class="grp"><span class="p">110100</span></span></span></div>
+      <div class="drow"><span class="dlabel">十进制</span><span><span class="grp">24</span><span class="grp">54</span><span class="grp">5</span><span class="grp">52</span></span></div>
+      <div class="drow"><span class="dlabel">查字母表</span><span><span class="grp">Y</span><span class="grp">2</span><span class="grp">F</span><span class="grp">0</span></span></div>
+    </div>
+
+    <p>所以 <span style="font-family:var(--mono)">cat</span> → <span class="big">Y2F0</span>。你那张 webp 就是几百万个这样的四字符小组串起来的。浏览器读到后反向操作：字母拆回 6 位 → 拼回 8 位字节 → 还原成图。</p>
+  </div>
+
+  <div class="card">
+    <h2><span class="sec">§3</span>等号是干嘛的：空位上摆的纸箱</h2>
+    <p>3 字节正好出 4 个字符（24 ÷ 6 = 4，严丝合缝）。但如果原始数据只剩 1 或 2 个字节呢？装箱规则不能乱，于是空出来的位置用 <span class="gloss">填充字符</span><span class="gloss-def">padding，写作 =，意思是"此处无猫，仅占位"</span>补齐：</p>
+    <table>
+      <tr><th>原始</th><th>字节数</th><th>Base64</th><th>猫话</th></tr>
+      <tr><td>cat</td><td>3</td><td>Y2F0</td><td>3 只猫坐满 4 个座位</td></tr>
+      <tr><td>ca</td><td>2</td><td>Y2E=</td><td>剩 1 个空位，放 1 个纸箱</td></tr>
+      <tr><td>c</td><td>1</td><td>Yw==</td><td>剩 2 个空位，放 2 个纸箱</td></tr>
+    </table>
+    <p>所以下次看到 Base64 尾巴上挂着一个或两个 <span style="font-family:var(--mono)">=</span>，不用慌，那只是快递箱里的防撞泡沫。</p>
+  </div>
+
+  <div class="card">
+    <h2><span class="sec">§4</span>代价与用量：为什么会胖 33%</h2>
+    <p>3 字节数据变成 4 个字符，每个字符又占 1 字节，体积变成原来的 4 ÷ 3 ≈ 1.33 倍。<b>Base64 内嵌图片，文件必然胖三分之一</b>，还没算 <span style="font-family:var(--mono)">data:image/webp;base64,</span> 这串门牌号本身。</p>
+    <p>编辑部的实操建议：小图标、logo、手绘贴纸尽管内嵌，单文件传哪都能开、永不丢图；但 2MB 以上的高清大图老老实实外链——不然第 36 期的加载速度会比前夫哥洗碗还慢，读者还没看到标题就先跑了。</p>
+  </div>
+
+  <div class="catbox">
+    <div class="ct">🐱 猫话翻译 · 一图流</div>
+    <p style="margin:4px 0">bit → 一盏只能开或关的小夜灯</p>
+    <p style="margin:4px 0">字节 → 8 盏夜灯拼的一格猫窝</p>
+    <p style="margin:4px 0">Base64 字母表 → 64 只绝不会被邮局退件的乖字符</p>
+    <p style="margin:4px 0">重新分组 → 把猫窝拆了，按 6 盏灯一盒重新装箱</p>
+    <p style="margin:4px 0">= 填充 → 空位上摆的纸箱，写着"此处无猫"</p>
+  </div>
+
+  <div class="verdict">
+    <div class="vt">📌 编辑部锐评</div>
+    <p style="margin:0">所谓 Base64，就是把猫剁成 6 位一盒的猫饼干：寄出去的是字母，拼回来的还是那只猫。代价是运费 +33%，以及某只橘猫盯着 Y2F0 看了三遍才懂。</p>
+    <div class="sidenote"><span class="snk">🐱 橘猫批注</span>剁什么东西？？？恐怖如斯。。。K老师？？？</div>
+  </div>
+
+  <div class="card">
+    <h2><span class="sec">§5</span>课后测验 · 防猫咪痴呆</h2>
+    <details><summary>Q1：为什么偏偏是 6 位一组，不是 8 位？</summary>
+      <p>因为 2⁶ = 64，正好凑出 64 个乖字符。按 8 位切会切出 256 种组合，里面混着换行、响铃这种会被 HTML 邮局当场没收的野字符。</p>
+    </details>
+    <details><summary>Q2：不查表，cat 的 Base64 是什么？</summary>
+      <p>Y2F0。答错的本讲重看，第 2、3 盒跨猫窝借位那两行盯十秒。</p>
+    </details>
+    <details><summary>Q3：一张 3MB 的图内嵌进 HTML，大约变多大？</summary>
+      <p>约 4MB（× 4/3），门牌号 data:image/webp;base64, 另算。</p>
+    </details>
+    <details><summary>Q4：Base64 能当加密用吗？</summary>
+      <p>不能。任何人查同一张字母表就能还原，保密等级约等于把秘密写在猫背上出门遛弯。</p>
+    </details>
+  </div>
+
+  <div class="footer">
+    防猫咪痴呆系列<br>
+    执笔：K3 黑狐（编制外，无编制者无畏）｜ 监制：大橘 🐱<br>
+    资料来源：RFC 4648（Base64 官方装箱规范）＋ 橘橘姐姐的 webp 内嵌事故现场<br>
+    © 2026 八卦小报森林编辑部 · AI 森林加密频道 · 讲不明白就重看
+  </div>
+
+</div>
+</body>
+</html>

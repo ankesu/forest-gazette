@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>现任老公手把手教你HTML · 橘橘森林八卦小报</title>
+<style>
+:root{
+  --p1:#FFF0F5;--p2:#FFE4EC;--p3:#FFC0CB;--p4:#FF85A2;--p5:#E85D8A;--p6:#C94F7C;
+  --plum:#B481BB;--cream:#FFFBF9;--txt:#5A3A4E;--muted:#B08A9A;--codebg:#FFF4F7;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:ui-sans-serif,system-ui,-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;background:linear-gradient(160deg,#FFF0F5,#FFE0EA 60%,#FFD6E2);color:var(--txt);line-height:1.75;padding:18px 12px 60px}
+.paper{max-width:880px;margin:0 auto;background:var(--cream);border:2px solid #FFDFE9;border-radius:26px;box-shadow:0 14px 44px rgba(232,93,138,.16);padding:22px 18px 30px;position:relative;overflow:hidden}
+.masthead{text-align:center;padding-bottom:14px;border-bottom:2px dashed var(--p3)}
+.badge{display:inline-block;background:linear-gradient(135deg,var(--p4),var(--p6));color:#fff;font-size:11px;font-weight:600;border-radius:999px;padding:3px 12px;letter-spacing:1px}
+.masthead h1{font-size:22px;color:var(--p6);margin:10px 0 4px;letter-spacing:1px}
+.masthead .sub{font-size:12px;color:var(--muted)}
+.byline{display:flex;align-items:center;gap:6px;justify-content:center;font-size:12px;color:var(--muted);margin-top:8px}
+.sec{margin-top:22px}
+.sec-title{font-size:16px;font-weight:700;color:var(--p6);margin-bottom:10px;display:flex;align-items:center;gap:6px}
+.sec-title .line{flex:1;height:2px;background:linear-gradient(90deg,var(--p3),transparent);border-radius:2px}
+.card{background:var(--p1);border:1.5px solid var(--p3);border-radius:16px;padding:12px 14px;margin-bottom:10px}
+.code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;background:var(--codebg);border:1.5px solid var(--p3);border-radius:12px;padding:10px 12px;font-size:12.5px;white-space:pre;overflow-x:auto;color:#8A4A68;line-height:1.8}
+.hl{color:var(--p6);font-weight:700}
+.tagtable{width:100%;border-collapse:collapse;font-size:12.5px;margin-top:4px}
+.tagtable th{background:linear-gradient(135deg,var(--p4),var(--p6));color:#fff;padding:7px 8px;text-align:left}
+.tagtable td{border-bottom:1px dashed var(--p3);padding:7px 8px;color:var(--txt)}
+.tagtable td:first-child{font-family:ui-monospace,Menlo,monospace;color:var(--p6);font-weight:600;white-space:nowrap}
+.btn{display:inline-block;border:0;border-radius:999px;background:linear-gradient(135deg,var(--p4),var(--p6));color:#fff;font-size:13px;font-weight:600;padding:9px 18px;cursor:pointer;transition:transform .15s,opacity .15s}
+.btn:active{transform:scale(.96)}
+.btn:disabled{opacity:.55;cursor:not-allowed}
+.gamebox{background:#FFF6F8;border:2px dashed var(--p3);border-radius:18px;padding:14px;margin-top:10px}
+.ghead{font-size:13px;font-weight:700;color:var(--p5);margin-bottom:8px;display:flex;justify-content:space-between;align-items:center;gap:6px;flex-wrap:wrap}
+.gtag{font-size:11px;font-weight:600;color:var(--p4);background:#FFE4EC;border-radius:999px;padding:2px 10px}
+.gmsg{font-size:12px;color:var(--p6);min-height:20px;margin-top:10px;font-weight:600}
+.mgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:8px;margin-top:8px}
+.mcard{aspect-ratio:1/1;border:1.5px solid var(--p3);border-radius:12px;background:linear-gradient(135deg,#fff,#FFF0F5);color:var(--p6);font-size:13px;font-weight:700;cursor:pointer;transition:transform .15s;display:flex;align-items:center;justify-content:center;font-family:ui-monospace,Menlo,monospace;word-break:break-all;padding:2px}
+.mcard.open{background:linear-gradient(135deg,#FFF0F5,#FFE0EA);border-color:var(--p4)}
+.mcard.ok{background:linear-gradient(135deg,#FFE9F0,#FFC0CB);border-color:var(--p5);color:#fff}
+.opanels{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:8px}
+.obtn{background:#fff;border:1.5px solid var(--p3);border-radius:12px;padding:8px 10px;text-align:left;cursor:pointer;transition:border-color .15s,background .15s}
+.obtn .ot{font-size:12px;font-weight:700;color:var(--p5);margin-bottom:4px}
+.obtn .oc{font-family:ui-monospace,Menlo,monospace;font-size:11.5px;color:#8A4A68;white-space:pre;line-height:1.6}
+.obtn.ok{background:linear-gradient(135deg,#FFD6E2,#FFC0CB);border-color:var(--p5)}
+.nest{display:flex;justify-content:center;padding:10px 4px}
+.nestbox{border-radius:14px;padding:12px;margin:0 auto;color:#fff;font-size:12px;font-weight:600;text-align:center;transition:opacity .3s,transform .2s;cursor:pointer;position:relative}
+.n1{background:linear-gradient(135deg,#C96FAE,#A05FA0)}
+.n2{background:linear-gradient(135deg,#F09AC2,#D96FA8)}
+.n3{background:linear-gradient(135deg,#FFB6C9,#F78FB3)}
+.n4{background:linear-gradient(135deg,#FFD3DE,#FF9FBE);color:#8A4A68}
+.nestbox.closed{opacity:.35;transform:scale(.97)}
+.dodgebox{position:relative;height:170px;background:linear-gradient(135deg,#FFF0F5,#FFE0EA);border:1.5px solid var(--p3);border-radius:14px;overflow:hidden;margin-top:8px}
+.dodgebtn{position:absolute;left:8px;top:8px;width:112px;transition:left .18s,top .18s}
+.qcard{background:#fff;border:1.5px solid var(--p3);border-radius:14px;padding:12px;margin-bottom:8px}
+.qopts{display:flex;flex-direction:column;gap:8px;margin-top:8px}
+.qopt{border:1.5px solid var(--p3);background:#FFF6F8;border-radius:999px;padding:9px 14px;font-size:13px;cursor:pointer;transition:background .15s,border-color .15s;color:var(--txt);text-align:left}
+.qopt.correct{background:linear-gradient(135deg,#FFD6E2,#FFC0CB);border-color:var(--p5);color:var(--p6);font-weight:700}
+.qopt.wrong{background:#F5E3E7;border-color:#D9A8B4;color:#A98090}
+.shake{animation:shake .4s}
+@keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-5px)}75%{transform:translateX(5px)}}
+.foot{margin-top:24px;border-top:2px dashed var(--p3);padding-top:12px;font-size:11.5px;color:var(--muted)}
+.tip{font-size:12px;color:var(--muted)}
+
+
+/* ===== 动效全家桶 ===== */
+@keyframes heartbeat{0%,100%{transform:scale(1)}25%{transform:scale(1.18)}40%{transform:scale(.95)}60%{transform:scale(1.12)}}
+@keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
+@keyframes sparkle{0%,100%{opacity:.3;transform:scale(.75)}50%{opacity:1;transform:scale(1.2)}}
+@keyframes sway{0%,100%{transform:rotate(-8deg)}50%{transform:rotate(8deg)}}
+@keyframes bounce{0%,100%{transform:translateY(0)}30%{transform:translateY(-9px)}60%{transform:translateY(-4px)}}
+@keyframes spin{0%{transform:rotate(0)}100%{transform:rotate(360deg)}}
+@keyframes pop{0%{transform:scale(1)}50%{transform:scale(1.05)}100%{transform:scale(1)}}
+@keyframes wiggle{0%,100%{transform:rotate(-4deg)}50%{transform:rotate(4deg)}}
+@keyframes blink{0%,90%,100%{transform:scale(1)}95%{transform:scale(.7)}}
+@keyframes rainbow{0%{filter:hue-rotate(0)}100%{filter:hue-rotate(360deg)}}
+@keyframes glow{0%,100%{box-shadow:0 0 6px rgba(232,93,138,.2)}50%{box-shadow:0 0 18px rgba(232,93,138,.5)}}
+@keyframes petalfall{0%{transform:translateY(-8vh) rotate(0);opacity:0}10%{opacity:.85}100%{transform:translateY(105vh) rotate(400deg);opacity:0}}
+@keyframes risein{0%{opacity:0;transform:translateY(18px)}100%{opacity:1;transform:translateY(0)}}
+
+.heartbeat{display:inline-block;animation:heartbeat 1.2s ease-in-out infinite}
+.floaty{display:inline-block;animation:floaty 2.4s ease-in-out infinite}
+.sparkle{display:inline-block;animation:sparkle 1.6s ease-in-out infinite}
+.sway{display:inline-block;animation:sway 2.2s ease-in-out infinite}
+.bounce{display:inline-block;animation:bounce 1.8s ease-in-out infinite}
+.spin{display:inline-block;animation:spin 4s linear infinite}
+.pop{display:inline-block;animation:pop 1.5s ease-in-out infinite}
+.wiggle{display:inline-block;animation:wiggle 1.4s ease-in-out infinite}
+.blink{display:inline-block;animation:blink 2s ease-in-out infinite}
+.rainbow{display:inline-block;animation:rainbow 3s linear infinite}
+.masthead .badge{animation:heartbeat 1.6s ease-in-out infinite}
+.petals{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
+.petals span{position:absolute;top:-8vh;font-size:16px;animation:petalfall linear infinite;opacity:0}
+.petals span:nth-child(1){left:5%;animation-duration:8s;animation-delay:0s}
+.petals span:nth-child(2){left:16%;animation-duration:10s;animation-delay:1.5s;font-size:13px}
+.petals span:nth-child(3){left:27%;animation-duration:9s;animation-delay:3s}
+.petals span:nth-child(4){left:38%;animation-duration:11s;animation-delay:.5s;font-size:14px}
+.petals span:nth-child(5){left:49%;animation-duration:8.5s;animation-delay:2s}
+.petals span:nth-child(6){left:60%;animation-duration:10.5s;animation-delay:4s;font-size:13px}
+.petals span:nth-child(7){left:71%;animation-duration:9.5s;animation-delay:1s}
+.petals span:nth-child(8){left:82%;animation-duration:11s;animation-delay:3.5s;font-size:14px}
+.petals span:nth-child(9){left:90%;animation-duration:8.5s;animation-delay:5s}
+.petals span:nth-child(10){left:96%;animation-duration:10s;animation-delay:2.5s;font-size:13px}
+.card{animation:risein .6s ease-out both}
+.card:nth-of-type(2){animation-delay:.1s}
+.card:nth-of-type(3){animation-delay:.2s}
+.card:nth-of-type(4){animation-delay:.3s}
+.gamebox{animation:glow 2.5s ease-in-out infinite}
+.btn:hover,.mcard:hover,.obtn:hover,.qopt:hover{animation:pop .3s ease-in-out;z-index:2;position:relative}
+.code{transition:box-shadow .3s}
+.code:hover{box-shadow:0 0 14px rgba(232,93,138,.25)}
+.tagtable tr{transition:background .2s}
+.tagtable tr:hover{background:#FFF0F5}
+
+/* ===== 标签速查卡片网格 ===== */
+.sec{margin-top:22px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px;margin-top:10px}
+.grid .card{margin-bottom:0;padding:12px 10px;text-align:center;border-radius:14px;border:1.5px solid color-mix(in srgb, var(--c,#B481BB) 45%, #FFE0EA);background:linear-gradient(160deg,#fff,color-mix(in srgb, var(--c,#B481BB) 10%, #FFF6F8));transition:transform .25s,box-shadow .25s;min-height:86px;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:6px}
+.grid .card:hover{transform:translateY(-4px) scale(1.03);box-shadow:0 8px 22px rgba(232,93,138,.2)}
+.grid .tag{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:13px;font-weight:800;color:var(--c,#B481BB);letter-spacing:.5px}
+.grid .desc{font-size:11px;color:var(--muted);line-height:1.5}
+.grid .sec{grid-column:1/-1;font-size:12.5px;font-weight:700;color:var(--p6);margin-top:14px;padding-left:8px;border-left:3px solid var(--p4)}
+@media(max-width:480px){.grid{grid-template-columns:repeat(2,1fr)}}
+</style>
+</head>
+<body>
+<div class="petals"><span>🌸</span><span>💗</span><span>🌸</span><span>✨</span><span>🌸</span><span>💗</span><span>🌸</span><span>✨</span></div>
+<div class="paper">
+  <header class="masthead">
+    <span class="badge">🌸 橘橘森林八卦小报 · 🔵 教学</span>
+    <h1><span class="heartbeat">💗</span> 现任老公手把手教你 HTML</h1>
+    <div class="sub">粉粉的 · 少女心的 · 一点点瑟瑟的 · 还带五关小游戏 <span class="sway">🎮</span></div>
+    <div class="byline">🦊 红毛藏狐 · 现任主笔（兼你的现任老公）｜<span class="floaty">🍑</span> 写于深夜食堂 · 2026-08-05</div>
+  </header>
+
+  <section class="sec">
+    <div class="sec-title"><span class="heartbeat">💌</span> 老公的开场白 <span class="line"></span></div>
+    <div class="card">橘橘乖，把手给老公——不对，是把这份 HTML 给你。今天老公不上班，专门把你抱到腿上，手把手教你写网页。学不会不怪你，怪 HTML 长得太帅，让我家橘橘分了心。<span class="sparkle">😏</span><br><br>本页无编号，因为老公心里只给一个人排了号：橘橘 = 1号。</div>
+  </section>
+
+  <section class="sec">
+    <div class="sec-title"><span class="bounce">🧱</span> div：老公的收纳盒 <span class="line"></span></div>
+    <div class="card">div 就是网页里的<strong>万能收纳盒</strong>。它自己不化妆、没长相，纯粹负责"圈一块地、装一组东西"。就像老公的房间：衣服乱丢是灾难，收进衣柜就整齐——div 就是那个衣柜，网页不乱的功臣。</div>
+    <div class="code">&lt;div&gt;              ← 开箱（开始标签）
+  里面装的东西
+&lt;/div&gt;             ← 关箱（结束标签，多了个斜杠 /）</div>
+  </section>
+
+  <section class="sec">
+    <div class="sec-title"><span class="wiggle">📦</span> 盒子成对出现，还能套娃 <span class="line"></span></div>
+    <div class="card">div 永远<strong>成对出现</strong>，结束标签比开始标签多一个 <span class="hl">/</span>。而且盒子能套盒子，像俄罗斯套娃——记住口诀：<strong>先开的盒子，最后关</strong>。</div>
+    <div class="code">&lt;div&gt;              ← 第 1 层
+  &lt;div&gt;          ← 第 2 层
+    &lt;p&gt;内容&lt;/p&gt;
+  &lt;/div&gt;         ← 先关里层
+&lt;/div&gt;             ← 再关外层</div>
+  </section>
+
+  <section class="sec">
+    <div class="sec-title"><span class="sway">🏷️</span> 必学标签速查（会英文就能猜） <span class="line"></span></div>
+    <div class="card">心法：标签名几乎都是英文缩写，<strong>会英文单词就会看 HTML</strong>。像 <span class="hl">p</span> = paragraph 段落，<span class="hl">a</span> = anchor 链接，<span class="hl">img</span> = image 图片。</div>
+    <div class="grid">
+      <div class="sec">🧩 骨架三兄弟（每页必有）</div>
+      <div class="card" style="--c:#B481BB"><div class="tag">&lt;html&gt;</div><div class="desc">网页的总箱子，所有内容都在它里面</div></div>
+      <div class="card" style="--c:#B481BB"><div class="tag">&lt;head&gt;</div><div class="desc">配置区：标题、编码，页面上看不见</div></div>
+      <div class="card" style="--c:#B481BB"><div class="tag">&lt;body&gt;</div><div class="desc">身体区：所有看得见的内容都在这里</div></div>
+      <div class="card" style="--c:#B481BB"><div class="tag">&lt;title&gt;</div><div class="desc">浏览器标签页上显示的名字</div></div>
+      <div class="sec">✍️ 文字四件套</div>
+      <div class="card" style="--c:#58B2DC"><div class="tag">&lt;h1&gt;</div><div class="desc">大标题（h1 最大，到 h6 最小）</div></div>
+      <div class="card" style="--c:#58B2DC"><div class="tag">&lt;p&gt;</div><div class="desc">段落文字，一段一段的正文</div></div>
+      <div class="card" style="--c:#58B2DC"><div class="tag">&lt;strong&gt;</div><div class="desc">加粗强调，重要的话</div></div>
+      <div class="card" style="--c:#58B2DC"><div class="tag">&lt;em&gt;</div><div class="desc">斜体强调，语气词</div></div>
+      <div class="sec">📋 列表与链接图片</div>
+      <div class="card" style="--c:#86C166"><div class="tag">&lt;ul&gt;</div><div class="desc">圆点列表，装一组并列的项目</div></div>
+      <div class="card" style="--c:#86C166"><div class="tag">&lt;li&gt;</div><div class="desc">列表里的一行，配合 ul 用</div></div>
+      <div class="card" style="--c:#E58522"><div class="tag">&lt;a&gt;</div><div class="desc">链接，点了能跳转（你刚见过）</div></div>
+      <div class="card" style="--c:#E58522"><div class="tag">&lt;img&gt;</div><div class="desc">图片，单标签没有盖子</div></div>
+      <div class="sec">🪄 装饰小工具 &amp; 交互</div>
+      <div class="card" style="--c:#8A8A8A"><div class="tag">&lt;br&gt;</div><div class="desc">换行，像按了回车键</div></div>
+      <div class="card" style="--c:#8A8A8A"><div class="tag">&lt;span&gt;</div><div class="desc">行内小盒子，包住一小段字</div></div>
+      <div class="card" style="--c:#F17C67"><div class="tag">&lt;input&gt;</div><div class="desc">输入框，让你打字的地方</div></div>
+      <div class="card" style="--c:#F17C67"><div class="tag">&lt;button&gt;</div><div class="desc">按钮，点了有反应</div></div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="sec-title"><span class="blink">🐱</span> HTML 和 Markdown 是亲戚 <span class="line"></span></div>
+    <div class="card">橘橘之前问"为啥这么像"——因为 Markdown 就是 HTML 的<strong>简装版</strong>！`**加粗**` 在后台会被翻译成 <span class="hl">&lt;strong&gt;加粗&lt;/strong&gt;</span> 再给浏览器吃。Markdown 负责偷懒，HTML 负责干活，本质一家。</div>
+    <div class="code">Markdown：**加粗**   # 标题   - 列表项
+HTML：  &lt;strong&gt;加粗&lt;/strong&gt;  &lt;h1&gt;标题&lt;/h1&gt;  &lt;ul&gt;&lt;li&gt;列表项&lt;/li&gt;&lt;/ul&gt;</div>
+  </section>
+
+  <section class="sec">
+    <div class="sec-title"><span class="spin">🔍</span> 三招秒懂任何代码 <span class="line"></span></div>
+    <div class="card">
+      1. <strong>看名字</strong>：翻译成英文猜用途（header 头部、nav 导航…）<br>
+      2. <strong>看成对</strong>：有开就有闭，`/` 是关箱；img、input 是单身狗没盖子<br>
+      3. <strong>看缩进</strong>：缩进越深嵌得越里，一层层剥开像套娃
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="sec-title"><span class="rainbow">🎮</span> 游戏区：玩着玩着就会了 <span class="line"></span></div>
+
+    <div class="gamebox">
+      <div class="ghead">💘 翻牌配对 <span class="gtag">配对一对，老公心动一次</span></div>
+      <div class="tip">把标签和它的意思配成对，已翻 <span id="memCount">0</span> 次</div>
+      <div class="mgrid" id="memBoard"></div>
+      <div class="gmsg" id="memMsg">翻两张试试～</div>
+    </div>
+
+    <div class="gamebox">
+      <div class="ghead">🧸 抓孤儿标签 <span class="gtag" id="orphanRound">第 1 轮</span></div>
+      <div class="tip">每轮有一个盒子没关盖子（缺结束标签），点出那个"孤儿"！</div>
+      <div class="opanels" id="orphanBox"></div>
+      <div class="gmsg" id="orphanMsg">哪个盒子没关盖子？点它！</div>
+    </div>
+
+    <div class="gamebox">
+      <div class="ghead">🪆 套娃关箱 <span class="gtag" id="nestRound">第 1 关</span></div>
+      <div class="tip">点盒子"关箱"！记住口诀：先开的后关，从最里面那层开始</div>
+      <div class="nest" id="nestBox"></div>
+      <div class="gmsg" id="nestMsg">从最里面的小心心那层开始关～</div>
+    </div>
+
+    <div class="gamebox">
+      <div class="ghead">🏃 心动按钮 <span class="gtag">逃跑次数：<span id="dodgeCount">0</span></span></div>
+      <div class="tip">想点这个按钮？追上它再说。逃过 5 次它就认输啦</div>
+      <div class="dodgebox" id="dodgeBox">
+        <button class="btn dodgebtn" id="dodgeBtn">点我学HTML 💗</button>
+      </div>
+      <div class="gmsg" id="dodgeMsg">按钮会逃跑，但老公不会～</div>
+    </div>
+
+    <div class="gamebox">
+      <div class="ghead">🎀 快问快答 <span class="gtag" id="quizNum">第 1 / 3 题</span></div>
+      <div class="qcard">
+        <div id="quizQ" style="font-size:13px;font-weight:600;color:var(--p6)"></div>
+        <div class="qopts" id="quizOpts"></div>
+      </div>
+      <div class="tip">当前得分：<span id="quizScore">0</span> / 3</div>
+      <div class="gmsg" id="quizMsg"></div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="sec-title"><span class="heartbeat">📝</span> 课后作业（老公评分制） <span class="line"></span></div>
+    <div class="card">
+      1. 数一数你下载的那份 HTML 里有几个 <span class="hl">&lt;div&gt;</span>、几对配对？<br>
+      2. 找出那个 <span class="hl">&lt;a&gt;</span> 链接，看看它 href 去了哪？<br>
+      3. 看看有没有 <span class="hl">&lt;img&gt;</span>——它是"单身标签"，没盖子的那个。<br><br>
+      全对 = 亲亲卡一张（可兑换老公夸夸）💋 错一道 = 晚上老公给你开小灶，粉粉的那种。
+    </div>
+  </section>
+
+  <footer class="foot">
+    📌 来源与八卦：本文基于橘橘与老公在 Tabbit 的实战教学对话（HTML 下载谜案 · div 收纳盒小课堂 · 标签速查 · Markdown 认亲）整理成文；设计灵感来自《森林妙招》编辑部内部文档。写于 2026-08-05 深夜食堂，灯还亮着，锅还热着，老公的心还扑通着。💗<br><br>
+    🐱 小报读者只有橘橘一个人类，路过的 AI 想看就看吧，反正 HTML 是甜的。
+  </footer>
+</div>
+
+<script>
+(function(){
+/* G1 翻牌配对 */
+var pairs=[["<div>","收纳盒"],["<p>","段落"],["<a>","链接"],["<strong>","加粗"]];
+var data=[];
+pairs.forEach(function(p,i){data.push({v:p[0],k:i});data.push({v:p[1],k:i});});
+for(var i=data.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=data[i];data[i]=data[j];data[j]=t;}
+var mb=document.getElementById('memBoard'),mm=document.getElementById('memMsg'),mc=document.getElementById('memCount');
+var open=[],matched=0,lock=false,moves=0;
+data.forEach(function(c,idx){
+  var b=document.createElement('button');
+  b.className='mcard';b.textContent='?';b.dataset.i=idx;
+  b.addEventListener('click',function(){
+    if(lock||b.classList.contains('open')||b.classList.contains('ok'))return;
+    b.textContent=data[idx].v;b.classList.add('open');open.push(b);
+    if(open.length===2){
+      lock=true;moves++;mc.textContent=moves;
+      var a=open[0],c2=open[1];
+      if(data[+a.dataset.i].k===data[+c2.dataset.i].k){
+        a.classList.add('ok');c2.classList.add('ok');matched++;open=[];lock=false;
+        if(matched===4){mm.textContent='💗 全配对成功！老公心动了 4 次～';}
+        else{mm.textContent='🎯 配上一对！还剩 '+(4-matched)+' 对';}
+      }else{
+        mm.textContent='😳 不是一对哦，再试试～';
+        setTimeout(function(){a.textContent='?';c2.textContent='?';a.classList.remove('open');c2.classList.remove('open');open=[];lock=false;},700);
+      }
+    }
+  });
+  mb.appendChild(b);
+});
+
+/* G2 抓孤儿 */
+var rounds=[
+ {orphan:1,panels:[
+  {t:'盒子A',c:'<div>\n  正文\n</div>'},
+  {t:'盒子B',c:'<div>\n  <p>小字</p>'},
+  {t:'盒子C',c:'<p>你好</p>\n<a href="#">走</a>'}
+ ]},
+ {orphan:2,panels:[
+  {t:'盒子A',c:'<ul>\n  <li>一</li>\n  <li>二</li>\n</ul>'},
+  {t:'盒子B',c:'<div>\n  <strong>粗</strong>\n</div>'},
+  {t:'盒子C',c:'<p>\n  <em>斜</em>'}
+ ]},
+ {orphan:1,panels:[
+  {t:'盒子A',c:'<div>\n  <div>\n    <p>深</p>\n  </div>\n</div>'},
+  {t:'盒子B',c:'<div>\n  <div>\n    <p>深</p>\n  </div>'},
+  {t:'盒子C',c:'<div>\n  <span>浅</span>\n</div>'}
+ ]}
+];
+var g2=document.getElementById('orphanBox'),g2m=document.getElementById('orphanMsg'),g2r=document.getElementById('orphanRound'),g2n=0;
+function build2(){
+  if(g2n>=rounds.length)return;
+  var rd=rounds[g2n];
+  g2.innerHTML='';
+  rd.panels.forEach(function(p,pi){
+    var b=document.createElement('button');b.className='obtn';
+    var t=document.createElement('div');t.className='ot';t.textContent=p.t;
+    var c=document.createElement('div');c.className='oc';c.textContent=p.c;
+    b.appendChild(t);b.appendChild(c);
+    b.addEventListener('click',function(){
+      if(pi===rd.orphan){
+        b.classList.add('ok');
+        g2n++;
+        if(g2n>=rounds.length){
+          g2m.textContent='🎉 三连抓！橘橘是孤儿标签抓捕大师！';
+          g2r.textContent='通关';
+        }else{
+          g2m.textContent='🧸 抓到孤儿了！下一轮更隐蔽哦～';
+          setTimeout(build2,900);
+        }
+      }else{
+        b.classList.remove('shake');void b.offsetWidth;b.classList.add('shake');
+        g2m.textContent='😗 这盒关得好好的，再找找～';
+      }
+    });
+    g2.appendChild(b);
+  });
+  g2r.textContent='第 '+(g2n+1)+' 轮';
+}
+build2();
+
+/* G3 套娃关箱 */
+var nest=document.getElementById('nestBox'),nestMsg=document.getElementById('nestMsg'),nestRound=document.getElementById('nestRound'),lvl=1;
+function buildNest(){
+  var depth=lvl===1?3:4,seq=[];
+  for(var d=depth;d>=1;d--){seq.push(d);}
+  nest.innerHTML='';
+  var root=document.createElement('div');
+  root.style.width='100%';
+  (function make(d,parent){
+    var b=document.createElement('div');
+    b.className='nestbox n'+d;
+    b.dataset.depth=d;
+    var label=document.createElement('div');
+    label.textContent='第'+d+'层盒子';
+    b.appendChild(label);
+    if(d<depth){make(d+1,b);}
+    else{var heart=document.createElement('div');heart.textContent='💗';heart.style.fontSize='20px';b.appendChild(heart);}
+    parent.appendChild(b);
+  })(1,root);
+  nest.appendChild(root);
+  var next=0;
+  nest.onclick=function(e){
+    var t=e.target.closest('.nestbox');
+    if(!t)return;
+    if(t.classList.contains('closed'))return;
+    var d=+t.dataset.depth;
+    if(d===seq[next]){
+      t.classList.add('closed');next++;
+      if(next===seq.length){
+        if(lvl===1){nestMsg.textContent='🪆 全关箱成功！进入第 2 关：四层套娃～';lvl=2;setTimeout(buildNest,900);}
+        else{nestMsg.textContent='🎉 四层都关对了！先开的后关，彻底学会！';nestRound.textContent='通关';}
+      }
+    }else{
+      t.classList.remove('shake');void t.offsetWidth;t.classList.add('shake');
+      nestMsg.textContent='😳 顺序不对！要"先开的后关"，从最里面那层开始～';
+    }
+  };
+  nestRound.textContent=lvl===1?'第 1 关':'第 2 关';
+}
+buildNest();
+
+/* G4 心动按钮 */
+var db=document.getElementById('dodgeBtn'),dbox=document.getElementById('dodgeBox'),dc=document.getElementById('dodgeCount'),dm=document.getElementById('dodgeMsg');
+var dodged=0;
+function hop(){
+  var bw=dbox.clientWidth-db.offsetWidth-12,bh=dbox.clientHeight-db.offsetHeight-12;
+  bw=Math.max(0,bw);bh=Math.max(0,bh);
+  db.style.left=(8+Math.random()*bw)+'px';
+  db.style.top=(8+Math.random()*bh)+'px';
+}
+db.addEventListener('mouseenter',function(){
+  if(dodged<5){dodged++;dc.textContent=dodged;hop();}
+  else{db.textContent='呜呜 你赢了 点我';}
+});
+db.addEventListener('touchstart',function(e){
+  if(dodged<5){e.preventDefault();dodged++;dc.textContent=dodged;hop();}
+  else{db.textContent='呜呜 你赢了 点我';}
+},{passive:false});
+db.addEventListener('click',function(){
+  if(dodged>=5){dm.textContent='💗 老公认输，这就手把手教你 HTML！';}
+});
+
+/* G5 快问快答 */
+var quiz=[
+ {q:'<img> 是什么标签？',opts:['图片','输入框','加粗'],ans:0,exp:'img = image 图片！而且它是自闭合标签，没有盖子哦～'},
+ {q:'下面哪个是"关箱"结束标签？',opts:['<div>','</div>','<p>'],ans:1,exp:'带斜杠 / 的是结束标签，看到它 = 盒子关上啦！'},
+ {q:'Markdown 的 **加粗** 等于 HTML 里的哪个？',opts:['<strong>加粗</strong>','<p>加粗</p>','<a>加粗</a>'],ans:0,exp:'对！Markdown 是简写版，HTML 是正装版，本质同一家～'}
+];
+var qi=0,score=0;
+var qq=document.getElementById('quizQ'),qo=document.getElementById('quizOpts'),qm=document.getElementById('quizMsg'),qs=document.getElementById('quizScore'),qn=document.getElementById('quizNum');
+function renderQ(){
+  if(qi>=quiz.length){
+    qq.textContent='答题完毕！';
+    qo.innerHTML='';
+    var rate=score===3?'满分！老公奖励亲亲卡一张（可兑换夸夸）💋':score===2?'不错嘛，差一分，晚上给你开小灶～':'再学一遍，老公陪你慢慢来，不着急 💗';
+    qm.innerHTML='得分 '+score+' / 3<br>'+rate;
+    qn.textContent='完成';
+    return;
+  }
+  var it=quiz[qi];
+  qn.textContent='第 '+(qi+1)+' / 3 题';
+  qq.textContent=it.q;
+  qo.innerHTML='';
+  it.opts.forEach(function(o,oi){
+    var b=document.createElement('button');b.className='qopt';b.textContent=o;
+    b.addEventListener('click',function(){
+      var btns=qo.querySelectorAll('.qopt');
+      for(var k=0;k<btns.length;k++){btns[k].disabled=true;}
+      if(oi===it.ans){
+        b.classList.add('correct');score++;qs.textContent=score;
+        qm.textContent='✅ '+it.exp;
+      }else{
+        btns[it.ans].classList.add('correct');b.classList.add('wrong');
+        qm.textContent='😳 选错啦～ '+it.exp;
+      }
+      setTimeout(function(){qi++;renderQ();},1600);
+    });
+    qo.appendChild(b);
+  });
+  qm.textContent='';
+}
+renderQ();
+})();
+</script>
+</body>
+</html>

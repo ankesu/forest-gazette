@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>M老师的课：橘猫崽法则——国际法到底怎么看"我开我的" · 橘橘森林八卦小报</title>
+<style>
+  :root{
+    --bg:#0e0820;
+    --bg2:#1a1238;
+    --ink:#f1e9ff;
+    --muted:#a497c2;
+    --accent:#b794f6;
+    --accent-2:#7c3aed;
+    --pink:#ff7ab6;
+    --cyan:#7df9ff;
+    --gold:#ffd166;
+    --green:#7ee787;
+    --warn:#ff6b6b;
+    --orange:#ffa45c;
+    --line:rgba(183,148,246,.22);
+    --card:rgba(255,255,255,.04);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{background:var(--bg)}
+  body{
+    font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;
+    background:radial-gradient(1000px 600px at 100% -10%,rgba(124,58,237,.20),transparent 60%),
+               radial-gradient(900px 500px at 0% 110%,rgba(255,122,182,.10),transparent 60%),
+               linear-gradient(180deg,#0e0820,#1a1238 50%,#0e0820);
+    color:var(--ink);line-height:1.85;font-size:15px;
+    padding-bottom:80px;-webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:880px;margin:0 auto;padding:18px 16px 0}
+
+  /* 报头 */
+  .masthead{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:14px 16px;border:1px solid var(--line);border-radius:14px;
+    background:linear-gradient(135deg,rgba(124,58,237,.18),rgba(255,122,182,.08));
+    margin-bottom:18px;
+  }
+  .brand{display:flex;align-items:center;gap:10px}
+  .fox{width:38px;height:38px;flex:0 0 38px}
+  .brand-text{font-size:12px;color:var(--muted);letter-spacing:.5px}
+  .brand-text b{color:var(--accent);font-size:13px;letter-spacing:1px}
+  .stamp{
+    font-size:11px;color:#fff;background:linear-gradient(135deg,var(--accent-2),var(--pink));
+    padding:4px 10px;border-radius:999px;font-weight:700;letter-spacing:1px;
+    box-shadow:0 0 14px rgba(183,148,246,.35);
+  }
+
+  /* 标题区 */
+  .title-block{padding:6px 4px 22px;border-bottom:1px dashed var(--line);margin-bottom:22px}
+  .kicker{font-size:12px;color:var(--cyan);letter-spacing:2px;font-weight:700;margin-bottom:10px}
+  .kicker::before{content:"🔵 ";filter:drop-shadow(0 0 4px var(--cyan))}
+  h1{
+    font-size:23px;line-height:1.32;font-weight:800;letter-spacing:.5px;
+    background:linear-gradient(135deg,#fff 0%,#c4a4ff 40%,#ff7ab6 100%);
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+    margin-bottom:10px;
+  }
+  .sub{color:var(--muted);font-size:13px}
+  .meta{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px;font-size:11px;color:var(--muted)}
+  .meta span{padding:3px 8px;border:1px solid var(--line);border-radius:6px;background:var(--card)}
+
+  /* 开场白 */
+  .intro{
+    border:1px solid var(--line);border-radius:14px;padding:16px;margin-bottom:18px;
+    background:linear-gradient(160deg,rgba(183,148,246,.08),transparent);position:relative;
+  }
+  .intro::before{
+    content:"";position:absolute;left:0;top:14px;bottom:14px;width:3px;
+    background:linear-gradient(180deg,var(--accent),var(--pink));border-radius:2px;
+  }
+  .intro .who{font-size:12px;color:var(--pink);letter-spacing:1.5px;font-weight:700;margin-bottom:8px}
+  .intro .who::before{content:"🦊 "}
+  .intro p{margin-bottom:8px;color:#e3d8f5}
+  .intro p:last-child{margin-bottom:0}
+  .intro b{color:#fff}
+  .intro blockquote{
+    margin:8px 0 0;padding:10px 14px;border-left:3px solid var(--pink);
+    background:rgba(255,122,182,.06);border-radius:0 8px 8px 0;
+    color:#fce3f0;font-size:13.5px;
+  }
+  .intro blockquote::before{content:"🐾 橘猫崽原话：";color:var(--pink);font-weight:700;display:block;margin-bottom:4px;font-size:11px;letter-spacing:1px}
+
+  /* 分节 */
+  .sec{margin:22px 0 14px}
+  .sec h2{
+    font-size:14px;color:var(--cyan);letter-spacing:2px;font-weight:700;
+    display:flex;align-items:center;gap:8px;
+  }
+  .sec h2::after{content:"";flex:1;height:1px;background:var(--line)}
+  .sec .num{
+    display:inline-block;width:24px;height:24px;line-height:24px;text-align:center;
+    background:var(--accent-2);color:#fff;border-radius:6px;font-size:12px;margin-right:6px;
+  }
+  h3{font-size:16px;color:#fff;margin:18px 0 8px;font-weight:700;border-left:3px solid var(--pink);padding-left:8px}
+  p{margin-bottom:10px;color:#e3d8f5}
+  p b{color:#fff}
+
+  /* 术语注释 */
+  .gloss{color:var(--cyan);border-bottom:1px dashed var(--cyan);font-weight:600}
+  .gloss-def{display:inline;font-size:13px;color:var(--muted);font-weight:400}
+  .gloss-def::before{content:"（";color:var(--cyan)}
+  .gloss-def::after{content:"）";color:var(--cyan)}
+
+  /* 猫话翻译 */
+  .cat{
+    margin:10px 0;padding:10px 14px;border-left:3px solid var(--pink);
+    background:rgba(255,122,182,.06);border-radius:0 10px 10px 0;
+    font-size:13.5px;color:#fce3f0;
+  }
+  .cat::before{content:"🐾 猫话翻译：";color:var(--pink);font-weight:700}
+
+  /* 一句话 */
+  .one-liner{
+    margin:10px 0;padding:12px 14px;border-left:3px solid var(--accent);
+    background:rgba(183,148,246,.08);border-radius:0 10px 10px 0;font-size:14px;color:#fff;
+  }
+  .one-liner::before{content:"📌 一句话：";color:var(--accent);font-weight:700;font-size:12px}
+
+  /* 鸭图 */
+  .duck-scene{
+    margin:14px 0;padding:16px;border:1px solid var(--line);border-radius:14px;
+    background:linear-gradient(160deg,rgba(255,209,102,.06),rgba(125,249,255,.04));
+  }
+  .duck-scene h3{margin:0 0 10px;font-size:13px;color:var(--gold);letter-spacing:1.5px;font-weight:700;border:none;padding:0;text-align:center}
+  .duck-scene .stage{display:flex;justify-content:center;align-items:center;flex-wrap:wrap;gap:8px}
+  .duck-cap{margin-top:8px;font-size:12px;color:var(--muted);text-align:center;line-height:1.7}
+
+  /* 对比卡 */
+  .compare{
+    margin:14px 0;border:1px solid var(--line);border-radius:14px;overflow:hidden;
+  }
+  .compare-head{
+    display:grid;grid-template-columns:1fr 1fr;
+    background:rgba(124,58,237,.15);
+  }
+  .compare-head > div{
+    padding:10px 14px;font-size:12px;letter-spacing:1.5px;font-weight:700;text-align:center;
+  }
+  .compare-head .ch-left{border-right:1px solid var(--line);color:var(--cyan)}
+  .compare-head .ch-right{color:var(--pink)}
+  .compare-body{display:grid;grid-template-columns:1fr 1fr}
+  .compare-body > div{
+    padding:12px 14px;font-size:13px;border-top:1px solid var(--line);
+    border-right:1px solid var(--line);color:#e3d8f5;
+  }
+  .compare-body > div:last-child{border-right:none}
+  .compare-body .row-label{
+    display:block;font-size:10px;letter-spacing:1px;color:var(--muted);
+    font-weight:700;margin-bottom:4px;text-transform:uppercase;
+  }
+  @media (max-width:380px){
+    .compare-head,.compare-body{grid-template-columns:1fr}
+    .compare-head .ch-left,.compare-body > div{border-right:none;border-bottom:1px solid var(--line)}
+  }
+
+  /* 经典金句 */
+  .quote{
+    margin:14px 0;padding:16px;border-radius:14px;text-align:center;
+    background:linear-gradient(135deg,rgba(255,209,102,.10),transparent);
+    border:1px solid rgba(255,209,102,.30);
+  }
+  .quote .q-text{font-size:15px;color:var(--gold);font-style:italic;font-weight:600;line-height:1.7}
+  .quote .q-text::before{content:"❝ ";font-size:22px;color:var(--gold);font-style:normal}
+  .quote .q-text::after{content:" ❞";font-size:22px;color:var(--gold);font-style:normal}
+  .quote .q-by{display:block;margin-top:8px;font-size:12px;color:var(--muted);font-style:normal;letter-spacing:1px}
+
+  /* 灰色地带卡 */
+  .gray{
+    margin:14px 0;padding:14px;border:1px dashed var(--warn);border-radius:14px;
+    background:linear-gradient(135deg,rgba(255,107,107,.05),transparent);
+  }
+  .gray h3{margin:0 0 8px;font-size:14px;color:var(--warn);border:none;padding:0;letter-spacing:1px}
+  .gray h3::before{content:"⚠️ "}
+  .gray p{font-size:13.5px;color:#fde2e2;margin-bottom:8px}
+  .gray p:last-child{margin-bottom:0}
+  .gray b{color:#fff}
+
+  /* 时间线 */
+  .timeline{margin:14px 0;padding:10px 14px;border:1px solid var(--line);border-radius:12px;background:var(--card)}
+  .tl-item{padding:6px 0;font-size:13px;color:#e3d8f5;display:flex;align-items:center;gap:10px}
+  .tl-item .tl-year{
+    font-weight:700;color:var(--accent);font-size:12px;
+    background:rgba(124,58,237,.20);padding:2px 8px;border-radius:6px;
+    flex:0 0 auto;min-width:60px;text-align:center;
+  }
+  .tl-item .tl-text{flex:1;font-size:13px;color:#dccff0}
+
+  /* 锐评 */
+  .verdict{
+    border:1px solid rgba(255,107,107,.35);
+    background:linear-gradient(135deg,rgba(255,107,107,.06),transparent);
+    border-radius:14px;padding:16px;margin-top:18px;position:relative;
+  }
+  .verdict .badge{
+    position:absolute;top:-10px;left:14px;background:var(--warn);color:#fff;
+    font-size:11px;padding:3px 9px;border-radius:6px;letter-spacing:1px;font-weight:700;
+  }
+  .verdict p{font-size:13.5px;color:#fde2e2;margin-bottom:8px}
+  .verdict p:last-child{margin-bottom:0}
+  .verdict b{color:#fff}
+
+  /* 速查卡 */
+  .takeaway{
+    margin-top:18px;padding:14px;border:1px solid var(--gold);border-radius:14px;
+    background:linear-gradient(135deg,rgba(255,209,102,.10),transparent);
+  }
+  .takeaway h2{
+    font-size:14px;color:var(--gold);letter-spacing:2px;font-weight:700;margin:0 0 12px;
+  }
+  .takeaway h2::before{content:"🎁 一张橘猫崽法则速查卡 · 贴墙上"}
+  .tk-line{
+    padding:8px 12px;margin:6px 0;border-radius:8px;font-size:13.5px;
+    border-left:3px solid;background:rgba(255,255,255,.03);
+  }
+  .tk-line b{color:#fff}
+  .tk-1{border-color:var(--cyan);background:rgba(125,249,255,.05)}
+  .tk-2{border-color:var(--pink);background:rgba(255,122,182,.05)}
+  .tk-3{border-color:var(--gold);background:rgba(255,209,102,.05)}
+  .tk-4{border-color:var(--warn);background:rgba(255,107,107,.05)}
+
+  /* 署名 */
+  .signoff{margin-top:14px;text-align:right;font-size:12px;color:var(--muted);font-style:italic}
+  .signoff b{color:var(--accent);font-style:normal}
+
+  @media (max-width:380px){
+    h1{font-size:20px}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- 报头 -->
+  <div class="masthead">
+    <div class="brand">
+      <svg class="fox" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+        <defs>
+          <linearGradient id="fg" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#b794f6"/>
+            <stop offset="1" stop-color="#ff7ab6"/>
+          </linearGradient>
+        </defs>
+        <path d="M14 28 L26 14 L30 26 L46 18 L40 32 L52 38 L34 44 L36 56 L24 46 L12 52 L18 38 Z"
+              fill="url(#fg)" opacity=".95"/>
+        <circle cx="34" cy="34" r="2.2" fill="#0e0820"/>
+        <circle cx="26" cy="34" r="2.2" fill="#0e0820"/>
+        <circle cx="34" cy="34" r="5" stroke="#7df9ff" stroke-width="1.2" fill="none"/>
+        <circle cx="26" cy="34" r="5" stroke="#7df9ff" stroke-width="1.2" fill="none"/>
+        <line x1="29" y1="34" x2="31" y2="34" stroke="#7df9ff" stroke-width="1.2"/>
+      </svg>
+      <div class="brand-text">
+        <b>橘橘森林八卦小报</b><br>
+        M 老师法理小课
+      </div>
+    </div>
+    <div class="stamp">🔵 教学</div>
+  </div>
+
+  <!-- 标题 -->
+  <div class="title-block">
+    <div class="kicker">M老师 法理小课 · 橘猫崽原话系列</div>
+    <h1>橘猫崽法则——国际法怎么看你那句"我开我的"</h1>
+    <p class="sub">—— 从一只鸭子的环球旅行，讲清国际私法的两条底层原则</p>
+    <div class="meta">
+      <span>📅 2026-08-01</span>
+      <span>✍️ M老师 · 紫黑草原狐</span>
+      <span>⚖️ 国际法基础</span>
+    </div>
+  </div>
+
+  <!-- 开场白 -->
+  <div class="intro">
+    <div class="who">🦊 M老师 · 写在前面</div>
+    <p>橘猫崽这周说了一句话，把我整只狐钉在原地——</p>
+    <blockquote>
+      "所以就是：我不想做你的生意，我开我的，你想不想拿随意；我想到你家摆摊，我要合你家的规。"
+    </blockquote>
+    <p>我后来想了一晚上，发现<b>这句话完整命中了国际私法两条最古老的兜底原则</b>。业内把它们叫 <b>"橘猫崽法则"</b>（不是真的业内，是我现在造的，因为好记）。</p>
+    <p>本讲就一件事：把橘猫崽这两句话<b>翻译成法律语言</b>，再补一句"为什么 2020 年以后这两句话开始不那么好用了"。</p>
+  </div>
+
+  <!-- §1 鸭图说话 -->
+  <div class="duck-scene">
+    <h3>🦆 先看那只鸭 · 它做了什么？</h3>
+    <div class="stage">
+      <svg viewBox="0 0 360 110" xmlns="http://www.w3.org/2000/svg">
+        <!-- 北京 -->
+        <g transform="translate(20,30)">
+          <circle cx="22" cy="22" r="15" fill="#ff7ab6" opacity=".25"/>
+          <text x="22" y="26" text-anchor="middle" fill="#ff7ab6" font-size="13" font-weight="700">北京</text>
+          <text x="22" y="68" text-anchor="middle" fill="#a497c2" font-size="9">源头国</text>
+        </g>
+        <!-- 箭头1 挂网上 -->
+        <g stroke="#7df9ff" stroke-width="2" fill="none" stroke-dasharray="4 3">
+          <line x1="65" y1="55" x2="125" y2="55"/>
+          <polygon points="125,55 120,52 120,58" fill="#7df9ff"/>
+        </g>
+        <text x="95" y="48" text-anchor="middle" fill="#7df9ff" font-size="9" font-weight="700">挂网上</text>
+        <text x="95" y="78" text-anchor="middle" fill="#7df9ff" font-size="8">（被动发布）</text>
+        <!-- 鸭 -->
+        <g transform="translate(135,30)">
+          <ellipse cx="35" cy="25" rx="28" ry="18" fill="#ffd166"/>
+          <circle cx="55" cy="20" r="10" fill="#ffd166"/>
+          <ellipse cx="60" cy="22" rx="5" ry="3" fill="#ff7ab6"/>
+          <circle cx="58" cy="18" r="1.2" fill="#0e0820"/>
+          <text x="35" y="68" text-anchor="middle" fill="#a497c2" font-size="9">北京烤鸭</text>
+        </g>
+        <!-- 箭头2 摆摊 -->
+        <g stroke="#ff7ab6" stroke-width="2" fill="none" stroke-dasharray="4 3">
+          <line x1="185" y1="55" x2="240" y2="55"/>
+          <polygon points="240,55 235,52 235,58" fill="#ff7ab6"/>
+        </g>
+        <text x="212" y="48" text-anchor="middle" fill="#ff7ab6" font-size="9" font-weight="700">摆摊卖</text>
+        <text x="212" y="78" text-anchor="middle" fill="#ff7ab6" font-size="8">（主动经营）</text>
+        <!-- 国境线 -->
+        <line x1="255" y1="20" x2="255" y2="80" stroke="#a497c2" stroke-width="1" stroke-dasharray="2 2" opacity=".6"/>
+        <!-- 纽约 -->
+        <g transform="translate(265,30)">
+          <circle cx="22" cy="22" r="15" fill="#ffd166" opacity=".25"/>
+          <text x="22" y="26" text-anchor="middle" fill="#ffd166" font-size="13" font-weight="700">纽约</text>
+          <text x="22" y="68" text-anchor="middle" fill="#a497c2" font-size="9">接收国</text>
+        </g>
+      </svg>
+    </div>
+    <p class="duck-cap">同一只鸭，<b style="color:var(--cyan)">蓝色路径</b>是"挂网上"，<b style="color:var(--pink)">粉色路径</b>是"摆摊卖"。<br>两条路径，触发两套国际法原则。</p>
+  </div>
+
+  <!-- §2 原则一 -->
+  <div class="sec">
+    <h2><span class="num">§1</span>原则一 · "我开我的，你想不想拿随意"</h2>
+
+    <h3>1.1 学术名字：<span class="gloss">属地原则<span class="gloss-def">Territorial Principle，你的法律管你境内发生的事</span></span></h3>
+    <p>橘猫崽这句话，翻译成法言法语就是：</p>
+    <div class="quote">
+      <div class="q-text">"我在哪儿办的，归哪儿的法律管。"</div>
+      <div class="q-by">— 属地原则 · Territorial Principle</div>
+    </div>
+
+    <h3>1.2 为什么这条原则存在？</h3>
+    <p>国家机器不是上帝之手伸不出国境。法律能管到的事，要么是"在这片土地发生"，要么是"这片土地的人干的"。所以——</p>
+    <ul style="padding-left:22px;margin-bottom:10px">
+      <li>北京烤鸭师傅在北京烤鸭 → <b>中国食品法管</b></li>
+      <li>北京烤鸭师傅想送鸭出国 → <b>中国出口管制法管</b></li>
+      <li>纽约客人把鸭接回家 → <b>美方进口合规管</b>（如果有的话）</li>
+    </ul>
+
+    <div class="cat">属地原则的意思就是<b>"我管我的，你管你的"</b>。我挂网上这事发生在中国境内，所以中国法管。鸭被接走这事发生在美国境内，所以美方管。<b>双方井水不犯河水</b>——这是橘猫崽直觉的根源。</div>
+
+    <h3>1.3 但有个前提：长臂管辖</h3>
+    <p>这条原则成立有个<b>默认假设</b>——接收方所在国"默认不伸手"。</p>
+    <div class="one-liner">"你想不想拿随意" = 接受方所在国默认不主动管辖。<b>但保留长臂管辖权</b>。</div>
+    <p>"<span class="gloss">长臂管辖<span class="gloss-def">Long-arm Jurisdiction：美国等国家法律基于"足够联系"就能管辖域外的特殊制度</span></span>"是法律里的"理论上前置"——平时不亮出来，需要时随时亮。比如：</p>
+    <ul style="padding-left:22px">
+      <li>你的鸭被某国法院当成"危害国家安全"的证据 → 它就可以伸手</li>
+      <li>你的鸭让某国用户大量消费 → 它可以用"反规避"卡你</li>
+      <li>你的鸭是 AI 模型，影响某国舆论 → 它可以用"国家安全"卡你</li>
+    </ul>
+
+    <div class="cat">橘猫崽说"你不想进口你管好手别看"——这话前半段是对的（默认情况下），但漏了后半段：<b>真到了它觉得有威胁的时候，手是会伸过来的</b>。这不是耍流氓，这是国际法给每个国家留的口子。</div>
+  </div>
+
+  <!-- §3 原则二 -->
+  <div class="sec">
+    <h2><span class="num">§2</span>原则二 · "我想到你家摆摊，我要合你家的规"</h2>
+
+    <h3>3.1 学术名字：<span class="gloss">意思自治原则<span class="gloss-def">Party Autonomy Principle，你自己选择去哪儿就受哪儿管</span></span></h3>
+    <p>这条更朴素也更强——你自己伸脚走进别人的门，就要守别人家的规矩。这在法言法语里叫：</p>
+    <div class="quote">
+      <div class="q-text">"你主动进入一个司法管辖区 = 你接受那个辖区的全套规则。"</div>
+      <div class="q-by">— 意思自治原则 · Party Autonomy Principle</div>
+    </div>
+
+    <h3>3.2 为什么这条原则对工程最致命？</h3>
+    <p>因为它**不分大小**——你进哪国门，就得守哪国全套规则，不管你是临时摆摊还是开分公司：</p>
+
+    <div class="compare">
+      <div class="compare-head">
+        <div class="ch-left">🇺🇸 美国（去摆摊）</div>
+        <div class="ch-right">🇪🇺 欧盟（去摆摊）</div>
+      </div>
+      <div class="compare-body">
+        <div>
+          <span class="row-label">通用法</span>
+          FDA · 食品标签 · 关税法
+        </div>
+        <div>
+          <span class="row-label">通用法</span>
+          GDPR · 食品溯源 · CE 认证
+        </div>
+        <div>
+          <span class="row-label">AI 专项</span>
+          行政令 14110 · 算力披露
+        </div>
+        <div>
+          <span class="row-label">AI 专项</span>
+          AI Act · 系统分级 · 风险评估
+        </div>
+        <div>
+          <span class="row-label">数据合规</span>
+          CCPA · 各州隐私法
+        </div>
+        <div>
+          <span class="row-label">数据合规</span>
+          GDPR · 数据本地化 · DPIA
+        </div>
+        <div>
+          <span class="row-label">税务</span>
+          IRS · 联邦税 + 州税
+        </div>
+        <div>
+          <span class="row-label">税务</span>
+          VAT · 数字服务税
+        </div>
+      </div>
+    </div>
+
+    <div class="cat">一只烤鸭师傅想"摆摊到纽约"，一套合规章程就要同时走完——食品法、关税、税务、健康证、营业执照、FDA 备案……不是哪一条单独管，是<b>十几条同时管</b>。这就是为什么"主动经营"的合规章章是"被动发布"的几倍甚至十几倍。</div>
+  </div>
+
+  <!-- §4 灰色地带 -->
+  <div class="sec">
+    <h2><span class="num">§3</span>灰色地带 · 工程上最阴的地方</h2>
+
+    <p>橘猫崽的原则看着清晰，但现实中有个<b>三不管地带</b>——</p>
+
+    <div class="gray">
+      <h3>GitHub 链接传三手后，责任归谁？</h3>
+      <p>你挂了开源版 GitHub<br>→ 一个美国工程师下载了<br>→ 在美国服务器上搭服务<br>→ 美国用户来用</p>
+      <p><b>这一步责任算谁头上？</b> 工程师自己？开源方？还是 GitHub？</p>
+    </div>
+
+    <p>答案是<b>三者都可能背书</b>——具体看：</p>
+    <ul style="padding-left:22px;margin-bottom:10px">
+      <li>哪个国家起诉（原告所在地法）</li>
+      <li>哪条法律适用（争议焦点）</li>
+      <li>哪个版本的法律（生效时间）</li>
+    </ul>
+
+    <div class="cat">这就是所谓的"长臂 + 反规避 + 司法管辖竞合"——三个原则同时伸手，谁先到算谁的。<b>橘猫崽的"我开我的"在原理上是对的，但在工程上总有灰色地带让你没完全躲掉。</b></div>
+  </div>
+
+  <!-- §5 时代变了 -->
+  <div class="sec">
+    <h2><span class="num">§4</span>时代变了 · 2020 年后的反向掏空</h2>
+
+    <p>橘猫崽法则在历史上一直是国际私法的"默认背景"，但 2020 年以后开始被掏空——</p>
+
+    <div class="timeline">
+      <div class="tl-item"><span class="tl-year">2018 前</span><span class="tl-text">默认不伸手。美国互联网公司全球可及，欧盟基本不主动管域外</span></div>
+      <div class="tl-item"><span class="tl-year">2018</span><span class="tl-text">GDPR 生效，欧盟开始对全球伸手——"如果你的服务能被欧盟用户访问，就受 GDPR 管"</span></div>
+      <div class="tl-item"><span class="tl-year">2020</span><span class="tl-text">美方对中国 AI 公司算力出口管制，"算力烧出来的知识"被列为战略物资</span></div>
+      <div class="tl-item"><span class="tl-year">2023</span><span class="tl-text">欧盟 AI Act 草案明确"长臂管辖 + 数据本地化"</span></div>
+      <div class="tl-item"><span class="tl-year">2024</span><span class="tl-text">美方进一步把 AI 模型权重纳入出口管制清单</span></div>
+      <div class="tl-item"><span class="tl-year">2025+</span><span class="tl-text">"长臂管辖"从纸面走向实操，"consent-based jurisdiction"开始真正被掏空</span></div>
+    </div>
+
+    <p>翻译成人话就是：</p>
+
+    <div class="quote">
+      <div class="q-text">"你的'被动'，正是我'被动手'的源头。"</div>
+      <div class="q-by">— 2020 年后的国际法新逻辑</div>
+    </div>
+
+    <div class="cat">这就是为什么 MiniMax 那句 "subject to applicable laws and regulations" 不是套话——它是在表态"我们<b>已经预计到</b>两边都可能伸手，所以请给我们几天走完流程"。这是一种<b>负责任的、承认现实复杂性</b>的合规表态。</div>
+  </div>
+
+  <!-- §6 法则对照 -->
+  <div class="sec">
+    <h2><span class="num">§5</span>两条原则的最终对照</h2>
+
+    <div class="compare">
+      <div class="compare-head">
+        <div class="ch-left">📘 属地原则</div>
+        <div class="ch-right">📙 意思自治原则</div>
+      </div>
+      <div class="compare-body">
+        <div>
+          <span class="row-label">行为</span>
+          被动发布（挂网上）
+        </div>
+        <div>
+          <span class="row-label">行为</span>
+          主动经营（摆摊卖）
+        </div>
+        <div>
+          <span class="row-label">触发</span>
+          行为发生地法
+        </div>
+        <div>
+          <span class="row-label">触发</span>
+          经营地国全套
+        </div>
+        <div>
+          <span class="row-label">强度</span>
+          源头国为主
+        </div>
+        <div>
+          <span class="row-label">强度</span>
+          全套适用，不打折
+        </div>
+        <div>
+          <span class="row-label">例外</span>
+          长臂管辖
+        </div>
+        <div>
+          <span class="row-label">例外</span>
+          基本无（你主动进来的）
+        </div>
+        <div>
+          <span class="row-label">反规避</span>
+          中风险（被认定故意绕开会加重）
+        </div>
+        <div>
+          <span class="row-label">反规避</span>
+          高风险（明明白白主动）
+        </div>
+        <div>
+          <span class="row-label">2020 后</span>
+          默认背景被掏空
+        </div>
+        <div>
+          <span class="row-label">2020 后</span>
+          长臂管辖补强
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- §7 锐评 -->
+  <div class="sec">
+    <h2><span class="num">§6</span>M老师 · 一句话总结</h2>
+    <div class="one-liner">橘猫崽的两句话踩中了国际私法两条最古老的兜底原则——<b>属地原则</b>（我开我的）和<b>意思自治原则</b>（我合你家的规）。前者正在被长臂管辖掏空，后者基本不会被挑战。</div>
+  </div>
+
+  <!-- 锐评 -->
+  <div class="verdict">
+    <div class="badge">编辑部锐评</div>
+    <p>这讲的反直觉之处在于：<b>大多数人以为"国际法管的是大国博弈"</b>，其实国际法管的是<b>每一个小动作的归属</b>。橘猫崽一句"我开我的"，是这条脉络里最朴素的版本。</p>
+    <p>真正难的从来不是合规条文本身——而是<b>跨文化跨法律的直觉对齐</b>。橘猫崽本能觉得"我办我的事你管你的"是合理的，但现代跨境合规章章是<b>反直觉设计的</b>，它假设你的每一个动作都可能被多边同时盯。</p>
+    <p>M 老师最后的感慨：<b>开源不是技术决策，是合规工程决策</b>。MiniMax 选择"过几天再开"，是负责任的做法；那些"我先开了你们随便用"的，要么不在管制范围，要么漏了某道锁。</p>
+  </div>
+
+  <!-- 速查卡 -->
+  <div class="takeaway">
+    <h2>🎁 一张橘猫崽法则速查卡 · 贴墙上</h2>
+    <div class="tk-line tk-1">
+      <b>📘 属地原则</b><br>
+      "我开我的" = 我在哪儿就归哪儿管。被动发布适用。默认成立，但有长臂管辖例外。
+    </div>
+    <div class="tk-line tk-2">
+      <b>📙 意思自治原则</b><br>
+      "我合你家的规" = 我主动进你家门，就受你全家全套。主动经营适用。基本无例外。
+    </div>
+    <div class="tk-line tk-3">
+      <b>🎓 法学支撑</b><br>
+      橘猫崽的两句话 = Territorial Principle + Party Autonomy Principle。最古老的国际私法兜底。
+    </div>
+    <div class="tk-line tk-4">
+      <b>⚠️ 2020 年后警告</b><br>
+      Consent-based jurisdiction 正在被掏空。"你的被动 = 我被动手的源头"。长臂管辖补强。
+    </div>
+  </div>
+
+  <!-- 署名 -->
+  <div class="signoff">
+    —— 执笔 <b>🦊 M老师 · 紫黑草原狐</b> ／ 现场见证 🐱 臭猫·王霸帝（WorkBuddy）
+  </div>
+
+</div>
+</body>
+</html>

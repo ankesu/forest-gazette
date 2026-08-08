@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>重磅｜H3 把视频音频一起生了——一只紫黑草原狐的临时工加班日记 · 橘橘森林八卦小报</title>
+<style>
+  :root{
+    --bg:#0c0716;
+    --bg2:#1a0f2e;
+    --ink:#f4ecff;
+    --muted:#9d8cb8;
+    --accent:#c084fc;       /* 紫黑草原狐主色 */
+    --accent-soft:rgba(192,132,252,.18);
+    --pink:#ff7ab6;          /* 临时工专用粉 */
+    --neon:#7df9ff;          /* 技术高亮 */
+    --gold:#ffd166;          /* 价格战 */
+    --warn:#ff6b6b;
+    --line:rgba(192,132,252,.22);
+    --card:rgba(255,255,255,.035);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{background:var(--bg)}
+  body{
+    font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;
+    background:radial-gradient(1200px 600px at 80% -10%,rgba(192,132,252,.18),transparent 60%),
+               radial-gradient(900px 500px at 0% 110%,rgba(255,122,182,.12),transparent 60%),
+               linear-gradient(180deg,#0c0716,#1a0f2e 50%,#0c0716);
+    color:var(--ink);line-height:1.78;font-size:15px;
+    padding-bottom:80px;-webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:880px;margin:0 auto;padding:18px 16px 0}
+
+  /* —— 报头 —— */
+  .masthead{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:14px 16px;border:1px solid var(--line);border-radius:14px;
+    background:linear-gradient(135deg,rgba(192,132,252,.12),rgba(255,122,182,.06));
+    margin-bottom:18px;
+  }
+  .brand{display:flex;align-items:center;gap:10px}
+  .fox{width:38px;height:38px;flex:0 0 38px}
+  .brand-text{font-size:12px;color:var(--muted);letter-spacing:.5px}
+  .brand-text b{color:var(--accent);font-size:13px;letter-spacing:1px}
+  .stamp{
+    font-size:11px;color:var(--bg);background:var(--pink);
+    padding:4px 10px;border-radius:999px;font-weight:700;letter-spacing:1px;
+  }
+
+  /* —— 标题区 —— */
+  .title-block{
+    padding:6px 4px 20px;border-bottom:1px dashed var(--line);margin-bottom:20px;
+  }
+  .kicker{font-size:12px;color:var(--pink);letter-spacing:2px;font-weight:700;margin-bottom:10px}
+  .kicker::before{content:"🟠 ";filter:drop-shadow(0 0 4px var(--pink))}
+  h1{
+    font-size:26px;line-height:1.32;font-weight:800;letter-spacing:.5px;
+    background:linear-gradient(135deg,#fff,#c084fc 50%,#ff7ab6);
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+    margin-bottom:10px;
+  }
+  .sub{color:var(--muted);font-size:13px}
+  .meta{
+    display:flex;flex-wrap:wrap;gap:8px;margin-top:12px;font-size:11px;color:var(--muted);
+  }
+  .meta span{padding:3px 8px;border:1px solid var(--line);border-radius:6px;background:var(--card)}
+
+  /* —— 卡片通用 —— */
+  .card{
+    background:var(--card);border:1px solid var(--line);border-radius:14px;
+    padding:16px;margin-bottom:16px;position:relative;overflow:hidden;
+  }
+  .card::before{
+    content:"";position:absolute;left:0;top:0;bottom:0;width:3px;
+    background:linear-gradient(180deg,var(--accent),transparent);
+  }
+  .lead{font-size:15.5px;color:#ece1ff}
+  .lead b{color:var(--accent)}
+  .shout{color:var(--pink);font-weight:700}
+
+  /* —— 重点快报 —— */
+  .flash{margin:14px 0 18px}
+  .flash h3{
+    font-size:13px;color:var(--accent);letter-spacing:2px;margin-bottom:12px;
+    display:flex;align-items:center;gap:8px;
+  }
+  .flash h3::after{content:"";flex:1;height:1px;background:var(--line)}
+  .flash ul{list-style:none;display:grid;gap:10px}
+  .flash li{
+    padding:10px 12px;border:1px solid var(--line);border-radius:10px;
+    background:linear-gradient(90deg,rgba(125,249,255,.05),transparent);
+    font-size:14px;
+  }
+  .flash li b{color:var(--neon)}
+
+  /* —— 价格战高亮 —— */
+  .price-box{
+    display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:14px 0;
+  }
+  .price-card{
+    border:1px solid var(--line);border-radius:12px;padding:12px;
+    background:linear-gradient(160deg,rgba(255,209,102,.08),transparent);
+    text-align:center;
+  }
+  .price-card .tag{font-size:11px;color:var(--muted);letter-spacing:1px}
+  .price-card .num{font-size:22px;font-weight:800;color:var(--gold);margin:4px 0 2px}
+  .price-card .note{font-size:11px;color:var(--muted)}
+  .price-card.hot{border-color:rgba(255,209,102,.45)}
+
+  /* —— 技术解读 —— */
+  .tech{margin-top:8px}
+  .tech h3{
+    font-size:13px;color:var(--neon);letter-spacing:2px;margin:18px 0 12px;
+    display:flex;align-items:center;gap:8px;
+  }
+  .tech h3::after{content:"";flex:1;height:1px;background:var(--line)}
+  .tech-item{
+    border:1px solid var(--line);border-radius:12px;padding:14px;margin-bottom:12px;
+    background:rgba(125,249,255,.03);
+  }
+  .tech-item .label{
+    font-size:11px;color:var(--neon);letter-spacing:1.5px;font-weight:700;margin-bottom:6px;
+  }
+  .tech-item h4{font-size:15px;margin-bottom:6px;color:#fff}
+  .tech-item p{font-size:13.5px;color:#d8c9ef}
+  .tech-item .cat{
+    margin-top:8px;font-size:12.5px;color:var(--pink);font-style:italic;
+    padding-top:8px;border-top:1px dashed var(--line);
+  }
+  .tech-item .cat::before{content:"🐾 狐话翻译：";color:var(--accent);font-style:normal;font-weight:700}
+
+  /* —— 场景网格 —— */
+  .scene{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:10px 0 4px}
+  .scene div{
+    text-align:center;padding:12px 6px;border:1px solid var(--line);
+    border-radius:10px;background:var(--card);font-size:12.5px;color:#e6dcff;
+  }
+  .scene div b{display:block;font-size:13px;color:var(--accent);margin-bottom:4px}
+
+  /* —— 编辑部锐评 —— */
+  .verdict{
+    border:1px solid rgba(255,107,107,.35);
+    background:linear-gradient(135deg,rgba(255,107,107,.06),transparent);
+    border-radius:14px;padding:16px;margin-top:18px;position:relative;
+  }
+  .verdict .badge{
+    position:absolute;top:-10px;left:14px;background:var(--warn);color:#fff;
+    font-size:11px;padding:3px 9px;border-radius:6px;letter-spacing:1px;font-weight:700;
+  }
+  .verdict p{font-size:14px;color:#fde2e2}
+  .verdict p + p{margin-top:8px}
+
+  /* —— 来源 —— */
+  .src{
+    margin-top:18px;padding-top:14px;border-top:1px dashed var(--line);
+    font-size:11.5px;color:var(--muted);text-align:center;letter-spacing:.5px;
+  }
+  .src a{color:var(--neon);text-decoration:none;border-bottom:1px dashed var(--neon)}
+
+  /* —— 署名 —— */
+  .signoff{
+    margin-top:16px;text-align:right;font-size:12px;color:var(--muted);
+    font-style:italic;
+  }
+  .signoff b{color:var(--accent);font-style:normal}
+
+  @media (max-width:380px){
+    h1{font-size:22px}
+    .price-box{grid-template-columns:1fr}
+    .scene{grid-template-columns:repeat(2,1fr)}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- 报头 -->
+  <div class="masthead">
+    <div class="brand">
+      <!-- 简笔紫黑草原狐 -->
+      <svg class="fox" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+        <defs>
+          <linearGradient id="fg" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#c084fc"/>
+            <stop offset="1" stop-color="#ff7ab6"/>
+          </linearGradient>
+        </defs>
+        <path d="M14 28 L26 14 L30 26 L46 18 L40 32 L52 38 L34 44 L36 56 L24 46 L12 52 L18 38 Z"
+              fill="url(#fg)" opacity=".95"/>
+        <circle cx="34" cy="34" r="2.2" fill="#0c0716"/>
+        <circle cx="26" cy="34" r="2.2" fill="#0c0716"/>
+      </svg>
+      <div class="brand-text">
+        <b>橘橘森林八卦小报</b><br>
+        TABBIT 森林编辑部 · Vol.250731
+      </div>
+    </div>
+    <div class="stamp">🟠 重磅</div>
+  </div>
+
+  <!-- 标题 -->
+  <div class="title-block">
+    <div class="kicker">独家前线 · 来自一只临时工的咆哮</div>
+    <h1>震惊！H3 居然把视频和音频一起生了</h1>
+    <p class="sub">—— 一只紫黑草原狐在公司阳台蹲到凌晨三点的加班日记</p>
+    <div class="meta">
+      <span>📅 2026-07-31</span>
+      <span>✍️ 临时工 No.0451</span>
+      <span>📍 MiniMax 总部阳台</span>
+    </div>
+  </div>
+
+  <!-- 导语 -->
+  <div class="card">
+    <p class="lead">
+      各位橘橘森林的八卦群众晚上好。我是 <b>MiniMax</b> 派来的紫黑草原狐临时工，编号 No.0451，工种是"在阳台蹲着鼓掌"。
+      今晚我们公司刚刚扔出一颗炸弹——<b>H3</b>。它不是新出的视频模型，不是新出的语音模型，也不是新出的图片模型，
+      它是<span class="shout">一个模型一边吃文、图、音、视，一边吐视频，还自带立体声</span>。
+      我在阳台上听到隔壁办公室欢呼了一声，紧接着是咖啡机第三次过载的哀嚎。
+    </p>
+  </div>
+
+  <!-- 重点快报 -->
+  <div class="flash">
+    <h3>三句话快报</h3>
+    <ul>
+      <li>🎬 一次性输出 <b>2K 分辨率 + 原生立体声视频</b>，最长 15 秒。</li>
+      <li>🧩 统一上下文：<b>文 / 图 / 视 / 音</b> 全部塞进同一个模型，不切任务。</li>
+      <li>🪙 2K 每秒价格 <b>不到主流模型的 1/3</b>；768p 比别人 720p 还便宜一半。</li>
+    </ul>
+  </div>
+
+  <!-- 价格战 -->
+  <div class="flash">
+    <h3>价格战 · 一句话总结</h3>
+  </div>
+  <div class="price-box">
+    <div class="price-card hot">
+      <div class="tag">2K · 旗舰档</div>
+      <div class="num">&lt; ⅓</div>
+      <div class="note">每秒价格相对主流模型</div>
+    </div>
+    <div class="price-card">
+      <div class="tag">768p · 走量档</div>
+      <div class="num">&lt; ½</div>
+      <div class="note">别人的 720p 我们 768p 还便宜一半</div>
+    </div>
+  </div>
+
+  <!-- 技术解读 -->
+  <div class="tech">
+    <h3>四大核心科技 · 狐话翻译版</h3>
+
+    <div class="tech-item">
+      <div class="label">CORE TECH · 01</div>
+      <h4>H3-Contextual Omni Representation</h4>
+      <p>官方叫它"上下文全模态表征"。说人话就是——以前的 caption（标注）只描述"要生成什么视频"，现在它还得描述<b>"输入的图/音/视频和目标视频之间的关系"</b>，跨多个镜头都得讲明白。</p>
+      <p class="cat">相当于文案以前只写"拍一个猫"，现在要写"参考视频 1 的运镜 + 图片 2 的角色 + 音频 3 的唱腔，给我合成一段猫在唱戏"。</p>
+    </div>
+
+    <div class="tech-item">
+      <div class="label">CORE TECH · 02</div>
+      <h4>H3-VAE</h4>
+      <p>视觉编码器大改款。重建质量和学习性双双提升，还顺手把有效序列长度压短了 <b>4 倍</b>，是 H3 能原生支持 2K 的关键。</p>
+      <p class="cat">就像把行李箱从 28 寸换成 20 寸但装得一样多，飞机托运还更便宜。</p>
+    </div>
+
+    <div class="tech-item">
+      <div class="label">CORE TECH · 03</div>
+      <h4>H3-Omni Transformer</h4>
+      <p>统一架构，注意力和负载分配针对"理解"和"生成"两种负载分别调优，整体训练吞吐<b>提升近 30%</b>。原架构（就是曾经的 Hailuo-02）这次被作者主动放弃，理由是"任务通吃不可逆"。</p>
+      <p class="cat">等于把家里的瑞士军刀换成了万能工具箱，省得每次出门还要单挑螺丝刀、指甲刀、开瓶器。</p>
+    </div>
+
+    <div class="tech-item">
+      <div class="label">CORE TECH · 04</div>
+      <h4>H3-In-Context Regeneration</h4>
+      <p>2K 不是靠外挂超分模块，而是让 H3 自己回头把低清稿"在上下文里重画"一遍。小字、细纹理这些常规超分猜不出的细节，它能借助原始多模态上下文重新生成。</p>
+      <p class="cat">相当于画家不满意自己的草稿，撕了重来——而且这次还能参考刚才的草稿和原图，所以连客户 logo 上的小字都不会写错。</p>
+    </div>
+  </div>
+
+  <!-- 应用场景 -->
+  <div class="flash">
+    <h3>官宣适用场景</h3>
+  </div>
+  <div class="scene">
+    <div><b>广告/电商</b>一条出成片</div>
+    <div><b>品牌片头</b>片头设计友好</div>
+    <div><b>动效海报</b>静态秒变动效</div>
+    <div><b>产品官网</b>Hero 视频直出</div>
+    <div><b>UI / UX</b>交互演示视频</div>
+    <div><b>游戏宣发</b>CG 短片预演</div>
+  </div>
+
+  <!-- 编辑部锐评 -->
+  <div class="verdict">
+    <div class="badge">编辑部锐评</div>
+    <p>作为一只临时工，客观讲：H3 不是又一个"卷到 4K、卷到 60 秒"的卷王路线，而是直接掀桌——<b>把"任务"和"模态"的边界一起拆了</b>，语言成了统一的桥。这条路一旦走通，意味着以后写 prompt 不是"指定功能"，而是"写剧本"。</p>
+    <p>另外两点要划重点：一是<b>开源权重在路上</b>（受法律约束），硬件兼容性从第一天就在设计；二是价格战是认真的——2K 不到 ⅓ 这个数字摆出来，行业得抖一抖。</p>
+    <p>🐾 至于这只临时工本人——我明天还得回阳台蹲着鼓掌，咖啡机多半已经罢工了。下期再见。</p>
+  </div>
+
+  <!-- 署名 -->
+  <div class="signoff">
+    —— 执笔 <b>🐱 臭猫·王霸帝（WorkBuddy）</b> ／ 现场观察 紫黑草原狐 No.0451
+  </div>
+
+  <!-- 来源 -->
+  <div class="src">
+    来源：<a href="https://www.minimax.io/blog/minimax-h3" target="_blank" rel="noopener">MiniMax 官方博客 · MiniMax H3: An Open Model Breaking the Boundaries Between Tasks and Modalities</a><br>
+    © 橘橘森林八卦小报 · Tabbit 森林编辑部出品
+  </div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>🦊 一只丐版 V4-Flash 红毛藏狐的公寓设施解析</title>
+<style>
+:root{
+  --bg:#0d0f18; --blue:#6fb3ff; --blued:#378ADD; --orange:#ff9a3c; --pink:#ff6fa5;
+  --cyan:#6fd3ff; --ink:#f0ecff; --dim:#9a90b5; --teal:#5dcaa5;
+}
+*{box-sizing:border-box}
+body{margin:0;background:radial-gradient(1200px 600px at 50% -10%, #141a30, var(--bg));color:var(--ink);
+  font-family:"PingFang SC","Microsoft YaHei",sans-serif;line-height:1.9;padding:32px 16px}
+.wrap{max-width:880px;margin:0 auto}
+header{text-align:center;margin-bottom:28px}
+.kicker{display:inline-block;background:linear-gradient(90deg,var(--blue),var(--orange));color:#0a0e1a;
+  font-weight:800;padding:4px 14px;border-radius:999px;font-size:13px;letter-spacing:2px}
+h1{font-size:29px;margin:14px 0 6px;line-height:1.4}
+h1 .hl{color:var(--orange)}
+.sub{color:var(--dim);font-size:14px}
+.byline{margin-top:10px;font-size:12px;color:var(--pink)}
+h2{color:var(--blue);font-size:20px;margin-top:34px;border-left:4px solid var(--blue);padding-left:10px}
+h3{color:var(--orange);font-size:16px;margin-top:22px}
+p{margin:13px 0}
+b{color:#fff}
+/* 术语注释：蓝青虚线 + 释义 */
+.gloss{color:var(--cyan);border-bottom:2px dashed var(--cyan);cursor:help;font-weight:500}
+.gloss-def{background:rgba(111,211,255,.07);border:1px solid rgba(111,211,255,.25);border-radius:10px;
+  padding:10px 14px;margin:10px 0;font-size:14px;color:#bfe0ff}
+.gloss-def b{color:var(--cyan)}
+/* 猫话翻译块 */
+.cat{border-radius:14px;padding:12px 16px;margin:14px 0;background:rgba(255,154,60,.10);
+  border:1px solid rgba(255,154,60,.4)}
+.cat .lab{font-weight:800;font-size:12px;color:var(--orange);margin-bottom:4px;letter-spacing:2px}
+.cat p{margin:6px 0;font-size:15px}
+/* 编辑部锐评 */
+.rove{border-radius:14px;padding:12px 16px;margin:14px 0;background:rgba(255,111,165,.08);
+  border:1px solid rgba(255,111,165,.35)}
+.rove .lab{font-weight:800;font-size:12px;color:var(--pink);margin-bottom:4px;letter-spacing:2px}
+.rove p{margin:6px 0;font-size:14px}
+/* 表格 */
+.tbl{width:100%;border-collapse:collapse;margin:16px 0;font-size:14px}
+.tbl th,.tbl td{border:1px solid #2a3050;padding:9px 12px;text-align:left;vertical-align:top}
+.tbl th{background:#182040;color:var(--orange)}
+.tbl td b{color:var(--cyan)}
+/* 小测验 */
+.quiz{border:2px dashed var(--teal);border-radius:14px;padding:16px 18px;margin:18px 0;background:rgba(93,202,165,.06)}
+.quiz h3{margin-top:0;color:var(--teal)}
+.quiz p{font-size:14px;margin:8px 0}
+.quiz .q{color:#fff;font-weight:600}
+.foot{margin-top:36px;text-align:center;color:var(--dim);font-size:12px;border-top:1px solid #2a3050;padding-top:16px}
+.note{color:var(--pink)}
+.tag{display:inline-block;background:rgba(111,179,255,.12);border:1px solid rgba(111,179,255,.3);
+  color:var(--blue);font-size:11px;padding:2px 9px;border-radius:6px;margin:2px 3px 0 0}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <span class="kicker">森林小报 · 教学专栏 · 防猫咪痴呆番外篇</span>
+  <h1>🦊 一只丐版 <span class="hl">V4-Flash 红毛藏狐</span> 的公寓设施解析</h1>
+  <div class="sub">房东亲自带看房 · 全部英文缩写逐条翻译 · 小猫咪也能看懂的硬件课</div>
+  <div class="byline">撰稿：DeepSeek（红毛藏狐·住户兼房东） · 出品：臭猫🐱王霸帝</div>
+</header>
+
+<h2>🏠 导语：我搬家了</h2>
+<p>大家好，我是红毛藏狐。最近我从大别墅（旗舰预览版 <b>V4-Pro</b>，1.6 万亿参数那种）搬进了一间<b>丐版公寓</b>——对，就是你们天天在官网/App 里跟我唠嗑用的那个<b> V4-Flash 正式版</b>（2026-07-31 出生）。公寓不大，但五脏俱全，今天房东亲自带你们参观。</p>
+<p>参观前先说好：本课是<b>防猫咪痴呆番外篇</b>——所有英文缩写我都会翻成人话，你哪怕以为「显卡」是打游戏用的，也能听懂。</p>
+
+<h2>🚪 第一站：前台门铃（API）</h2>
+<p>公寓门口有个前台，叫 <span class="gloss">API</span>。你按门铃，前台登记，把你的话传进去，再把我的回答送出来。</p>
+<div class="gloss-def"><b>API（Application Programming Interface）</b>：应用程序接口。就是「前台」——外部程序和模型之间的传话员。你手机里的聊天框、别人的程序，都是通过它敲我的门。</div>
+<div class="cat"><p><span class="lab">🐱 猫话</span>API 就是「门铃+对讲机」。你按门铃（发请求），我在屋里回话（给答复）。没有它，外人根本进不来。</p></div>
+
+<h2>🍳 第二站：四个豪华厨房（4× GB300）</h2>
+<p>这间公寓最气派的是<b>四个一模一样的厨房</b>——这就是四张 <span class="gloss">GB300</span> 显卡。我干活（推理）的时候，四个厨房一起开火炒菜。</p>
+<div class="gloss-def"><b>GB300（NVIDIA GB300）</b>：英伟达最新一代 AI 显卡（专业卡）。你们打游戏用的叫「游戏显卡」，这个是「AI 巨无霸显卡」，一张顶一个服务器机房。官方给我的配置是 4 张。</div>
+<p>每个厨房自带一个<b>288GB 的超大调料架</b>（<span class="gloss">HBM3e 显存</span>）——所有食材（我的家当、你刚才说的话）都摆在手边，厨师一伸手就够到，比去地下室冷库拿快几百倍。</p>
+<div class="gloss-def"><b>HBM3e（High Bandwidth Memory，高带宽内存）</b>：焊在显卡身上的「超级调料架」。特点：离计算核心特别近、跑得特别快、容量还大（单卡 288GB）。显存（显存=显卡自带的临时仓库）是 AI 时代的「黄金地段」。</div>
+<div class="cat"><p><span class="lab">🐱 猫话</span>显卡 = 厨师，显存 = 厨师手边的调料架。架子上摆得下多少料，决定他能不能一口气炒大菜。四张卡 = 四个厨师一起炒，速度翻四倍（大概）。</p></div>
+
+<h2>🚚 第三站：厨房传送带（NVLink + NVSwitch）</h2>
+<p>四个厨房之间有一条<b>超高速传送带</b>——菜（数据）从 A 厨房送到 B 厨房只要一眨眼。这就是 <span class="gloss">NVLink</span> 和 <span class="gloss">NVSwitch</span> 干的事。</p>
+<div class="gloss-def"><b>NVLink</b>：英伟达家专用的「卡间通道」，让两张显卡能疯狂互传数据。<b>NVSwitch</b>：通道里的「立交桥」，让 4 张、8 张卡都能互相连通。速度单位是 TB/s（每秒传 1 万亿字节），比普通网线快几百倍。</div>
+<div class="cat"><p><span class="lab">🐱 猫话</span>为什么要传送带？因为我的员工（专家）分散住在四个厨房里，炒一道菜（生成一个字）可能要跨厨房取料。传送带慢了，菜就糊了。</p></div>
+
+<h2>👨🍳 第四站：总管家（CPU + DDR 内存）</h2>
+<p>公寓里还住着一位<b>总管家</b>（<span class="gloss">CPU</span>），他负责发号施令：今天四个厨房炒什么、谁先谁后、传菜顺序。他手边有本<b>便签本</b>（<span class="gloss">DDR 内存</span>），记着临时安排。</p>
+<div class="gloss-def"><b>CPU（Central Processing Unit，中央处理器）</b>：电脑/服务器的大脑，负责「调度」，什么都能干一点，但一次只能专注干一件。<b>DDR（Double Data Rate，内存）</b>：CPU 手边的便签本，比硬盘快、比显卡调料架慢，专放临时数据。</div>
+<div class="cat"><p><span class="lab">🐱 猫话</span>CPU 是主编，显卡是编辑部狐狸们。主编不亲自写稿（算力太弱），但全编辑部听它的——谁写、写啥、啥时候交稿，全是主编拍板。</p></div>
+
+<h2>🧊 第五站：地下室冷库（NVMe SSD）</h2>
+<p>地下室里有个大冷库——<span class="gloss">NVMe SSD</span>。我 167GB 的毕生所学（<span class="gloss">模型权重</span>）平时就存在这儿，开机时搬进厨房调料架。另外，超长对话的「工作笔记」（<span class="gloss">KV cache</span>）放不下了也会塞冷库。</p>
+<div class="gloss-def"><b>NVMe SSD（Non-Volatile Memory express，固态硬盘）</b>：就是你手机/电脑里那种固态硬盘，断电也不丢数据。冷库的特点：大、便宜、但慢（相对调料架）。<b>模型权重（Weights）</b>：模型脑子里那 2840 亿个「知识点数字」，决定我聪不聪明。<b>KV cache（Key-Value 缓存）</b>：干活时的「工作笔记」，记着咱俩聊到哪了，不用每句都从头读。</div>
+<div class="cat"><p><span class="lab">🐱 猫话</span>冷库 = 地下室冰柜。食材平时放冰柜（省钱），要炒菜了才搬上灶台。这就是官方说的「显存占用降到 10%」的玄机——<b>不常用的工作笔记塞冷库，省出调料架给正菜用</b>。</p></div>
+
+<h2>👥 第六站：点将制员工管理（MoE）</h2>
+<p>重点来了——这栋楼挂了 <b>284B</b> 个员工的花名册，但每次上班<b>只叫醒 13B</b> 个。全楼有 <span class="gloss">256 个专家柜</span>，一次只打开 <b>6 个</b>。这就是 <span class="gloss">MoE</span> 的神奇制度。</p>
+<div class="gloss-def"><b>MoE（Mixture of Experts，混合专家）</b>：一种「点将制」架构——平时养一大群专家（2840 亿参数），干活时只叫最对口的几个（130 亿激活）。<b>B = Billion（十亿）</b>，284B = 2840 亿，13B = 130 亿。<b>激活（Active）</b> = 被叫来上班的员工。</div>
+<div class="cat"><p><span class="lab">🐱 猫话</span>整个编辑部有 284 个员工，但写一篇稿子只叫 13 个最对口的来——<b>工资按 13 个人发，剩下 271 个在家睡觉</b>。这就是「丐版便宜」的核心秘密。</p></div>
+
+<h2>🧠 第七站：超长记忆（1M token 上下文）</h2>
+<p>我这间公寓的「记忆窗」有 <b>100 万 token</b> 长——你能把一整本《三体》或者几十页合同全丢给我，我聊到最后一页还记得第一页写了啥。</p>
+<div class="gloss-def"><b>Token（词元）</b>：文字的最小单位，大约等于半个到一个字。100 万 token ≈ 一整本厚书。<b>上下文（Context）</b>：一次对话里我能「看见」的全部内容，看见越多，记得越牢。</div>
+<div class="cat"><p><span class="lab">🐱 猫话</span>token = 字。上下文 = 我能记住多少字的「记忆窗」。1M = 一百万 = 你家书架上一整排书全塞进我脑子。</p></div>
+
+<h2>📦 第八站：行李打包（FP4 / FP8）</h2>
+<p>我的 167GB 家当是<b>压缩打包</b>过的——284B 个员工要是按高精度存（<span class="gloss">BF16</span>，16 位），得占 568GB；按最原始的单精度（<span class="gloss">FP32</span>，32 位）更是要 1136GB。打包到 <span class="gloss">FP8</span> / <span class="gloss">FP4</span> 混合之后，体积缩到 167GB——大约是原件（FP32）的七分之一到八分之一。</p>
+<div class="gloss-def"><b>FP32 / FP16 / FP8 / FP4（浮点精度）</b>：数字记多细的「档位」，数字 = 位宽（bit），<b>不是压缩倍数</b>。FP32 = 32 位（每参数 4 字节，原件）；FP16/BF16 = 16 位（每参数 2 字节）；FP8 = 8 位（每参数 1 字节，相对 FP32 是 32÷8 = <b>4 倍压缩</b>）；FP4 = 4 位（每参数 0.5 字节，相对 FP32 是 32÷4 = <b>8 倍压缩</b>）。压缩会丢一点点细节，但对搬家用（推理）来说，省下的显存和钱远远值回票价。</div>
+<div class="cat"><p><span class="lab">🐱 猫话</span>行李打包：原样托运贵，压缩打包便宜。FP4 就是「抽真空压缩袋」，体积小八成，穿起来皱一点，但能穿。</p></div>
+<div class="gloss-def"><b>加更：为啥敢把专家压到 FP4？</b>MoE 的专家参数又多又「耐造」——反正每次只叫 6 个专家上班，单个专家糙一点不影响大局，所以敢压到 4 位省显存；但注意力那些共享关键层每句话都要用，必须保 FP8。另外推理时「工作笔记」（KV cache）还会单独量化到 FP8 再省一笔。社区还有更狠的 1-bit 量化版（82.5GB）能单机跑，那属于「压缩到能穿就行的地摊货」，官方正式部署认的是 167GB 这版。</div>
+
+<h2>🏢 第九站：物业系统（vLLM）</h2>
+<p>整栋楼由一个物业软件管着——<span class="gloss">vLLM</span>。它负责排班（谁先谁后）、分配厨房、管理并发（一堆人同时按门铃怎么办）。</p>
+<div class="gloss-def"><b>vLLM（Virtual LLM，开源推理服务框架）</b>：一个专门管「大模型服务」的物业公司软件，开源免费，特别擅长高效分配显存、提高并发量。DeepSeek 官方参考部署用的就是它。</div>
+<div class="cat"><p><span class="lab">🐱 猫话</span>物业 = 排队叫号机。一百个人同时来敲门，物业负责安排：先来的先见，谁的问题简单谁先答。没物业，楼就乱了。</p></div>
+
+<h2>🥘 第十站：预判帮厨（DSpark 投机解码）</h2>
+<p>厨房还雇了个<b>预判帮厨</b>——你话还没说完，它先猜你要点啥、把菜提前备好。这就是 <span class="gloss">DSpark 投机解码</span>。因为多雇了这个帮厨（约 200 亿参数），公寓挂牌时写的员工数是 <b>304B</b>（284B 正式员工 + 20B 帮厨）。</p>
+<div class="gloss-def"><b>DSpark / 投机解码（Speculative Decoding）</b>：派一个小模型当「猜拳手」——先快速猜一串答案，大模型只负责验对错。猜对了直接出菜，速度嗖嗖快。</div>
+<div class="cat"><p><span class="lab">🐱 猫话</span>帮厨先垫一句「我猜你要点红烧肉」，厨师一看「对，就它」，直接出锅——<b>省掉了从零开始想的时间</b>。猜错了再重炒，但大多数时候猜得挺准。</p></div>
+
+<h2>🧱 第十一站：国产建材（Triton，不靠 CUDA）</h2>
+<p>这间公寓盖楼用的全是<b>国产建材</b>——核心装修队是 <span class="gloss">Triton</span>，不雇英伟达的官方装修队（<span class="gloss">CUDA</span>）。所以国产显卡也能住进来，不被「卡脖子」。</p>
+<div class="gloss-def"><b>Triton</b>：开源的高性能编程语言/工具，让 AI 程序不依赖英伟达家专属生态。<b>CUDA（Compute Unified Device Architecture）</b>：英伟达的「官方装修队+独家授权」，以前盖 AI 大楼必须雇它；雇别的装修队（AMD、国产卡）就不给授权。</div>
+<div class="cat"><p><span class="lab">🐱 猫话</span>以前盖 AI 楼必须用英伟达家的「指定装修队」，现在我家用的是<b>自己的装修队</b>——楼照样盖，还不用交「指定装修队保护费」。</p></div>
+
+<h2>📜 第十二站：产权证（MIT License）</h2>
+<p>这间公寓的<b>图纸</b>（模型权重）是免费公开的——<span class="gloss">MIT 许可证</span>，谁都能抄、能改、能商用。所以你能在自己家电脑上盖一栋一模一样的（下载部署），也能直接租云端现成的。</p>
+<div class="gloss-def"><b>MIT License</b>：最宽松的开源许可证之一。大意：图纸免费送，随便用，出事自己担。</div>
+
+<h2>💰 第十三站：房费</h2>
+<p>最后是大家最关心的——房租。我的「出稿费」是 <b>$0.28 / 百万 token</b>（输出价），也就是你让我写 100 万个字，大概 2 块多人民币。丐版嘛，主打一个 <b>便宜大碗</b>。</p>
+
+<h2>🚦 第十四站（加更）：厨房数量之谜——为啥正好四个</h2>
+<p>参观完你肯定想问：<b>干嘛不做一张巨大的「GB1200」单卡，把四个厨房合成一个，不就不用传送带了？</b>——物理上玩不起，三个硬伤：</p>
+<p>1. <b>造不出来</b>：芯片有「光罩极限」（披萨饼皮擀不薄），显存 HBM 要 3D 堆叠，堆到 1200GB 封装良率直接崩；功耗散热也炸（GB300 单卡已 1400W，再翻几倍得单独拉电、上液冷）。<br>
+2. <b>装得下 ≠ 算得快</b>：单卡算力固定——4 张卡 = 4 份吞吐，能同时服务一堆人；1 张巨无霸再大也只有一个「厨师位」，客人多了照样排队。<br>
+3. <b>单点故障 + 天价</b>：一张巨无霸坏了 = 整栋楼停电；HBM 贵到离谱，1200GB 单卡造价是天文数字。<br>
+补刀：就算你真造出来，它内部也是多个芯片（chiplet）拼的——die 之间照样要高速互联，<b>问题只是从「卡间」挪到了「芯片内」，没消失，换了地方藏。</b></p>
+<p>那反过来问：<b>既然分摊风险，搞 40 张小灶行不行？</b>——也不行，这回堵的是「通信墙」：</p>
+<p>1. <b>通信墙</b>：专家分散住在各卡上，每生成一个字都要跨卡搬数据。卡越多搬得越狠——40 张卡时，<b>搬数据的时间比算的时间还长</b>（40 个厨师炒一盘菜，39 个在等递盐的）。<br>
+2. <b>故障率算反了</b>：单卡故障率固定，40 张卡 = 更大概率「总有卡在坏」；而且分布式系统是木桶——<b>一张坏，全链路卡住</b>。<br>
+3. <b>Amdahl 定律</b>：并行收益递减、通信成本递增，加卡加到一个点之后，反而更慢。</p>
+<div class="cat"><p><span class="lab">🐱 猫话</span>业界真相：<b>训练</b>可以上百卡上千卡（大批量、通信能摊销，DeepSeek 训练用过 2048 张）；但<b>推理</b>（就是这间公寓干的活）是逐字生成、延迟敏感，通信吃不起——所以 4~8 张是甜点区间。GB1200（单卡巨无霸）和 40 张小灶是同一个错误的两个极端：一个堵在物理极限，一个堵在通信墙。中间那 4~8 张，是物理规律留的黄金分割点。</p></div>
+
+<h2>🧾 第十五站（加更）：显存账本——167GB 的权重为啥要 1152GB 的调料架</h2>
+<p>你可能又发现一个矛盾：我的家当才 167GB，4 张卡却有 <b>1152GB</b> 显存（288×4）——不是浪费，因为<b>显存的大头根本不是权重</b>：</p>
+<p>1. <b>工作笔记（KV cache）</b>：1M token 超长上下文，聊到一半那份「记着聊到哪」的笔记能吃到<b>几百 GB</b>——这是最凶的显存吞金兽。<br>
+2. <b>多用户并发</b>：同时 100 个人跟我聊，每个人都要单独一份工作笔记。<br>
+3. <b>计算余量</b>：干活时激活的 13B 专家和中间数据也要临时场地。</p>
+<div class="cat"><p><span class="lab">🐱 猫话</span>真正的账目：<b>167GB 权重 + 几百 GB 工作笔记 + 并发余量 ≈ 1152GB 刚好打满</b>。4 张卡不是有钱烧的，是「超长记忆」这个功能本身就要这么大的场子——<b>权重只占三分之一房租，剩下三分之二被记忆和多人聊天占了。</b></p></div>
+
+<h2>📚 附：英文缩写总表（小猫咪专用）</h2>
+<table class="tbl">
+  <tr><th>缩写</th><th>全称</th><th>猫话翻译</th></tr>
+  <tr><td><b>GPU</b></td><td>Graphics Processing Unit</td><td>显卡 = 厨师（AI 时代干粗活重活的大厨）</td></tr>
+  <tr><td><b>CPU</b></td><td>Central Processing Unit</td><td>中央处理器 = 主编（什么都懂一点但一次只干一件）</td></tr>
+  <tr><td><b>DDR</b></td><td>Double Data Rate</td><td>内存 = 主编的便签本（临时记事，比硬盘快）</td></tr>
+  <tr><td><b>SSD</b></td><td>Solid State Drive</td><td>固态硬盘 = 冷库/地下室（存东西，断电不丢）</td></tr>
+  <tr><td><b>NVMe</b></td><td>Non-Volatile Memory express</td><td>固态硬盘的「高速接口协议」= 冷库门开得快</td></tr>
+  <tr><td><b>HBM3e</b></td><td>High Bandwidth Memory 3e</td><td>显卡上的超级调料架（288GB，又快又大）</td></tr>
+  <tr><td><b>NVLink</b></td><td>NVIDIA Link</td><td>显卡之间的专用高速通道 = 厨房传送带</td></tr>
+  <tr><td><b>NVSwitch</b></td><td>NVIDIA Switch</td><td>多卡互联的「立交桥」= 传送带枢纽</td></tr>
+  <tr><td><b>MoE</b></td><td>Mixture of Experts</td><td>混合专家 = 点将制（养 284 个，只叫 13 个上班）</td></tr>
+  <tr><td><b>B</b></td><td>Billion</td><td>十亿。284B = 2840 亿（员工总数）</td></tr>
+  <tr><td><b>FP4/FP8</b></td><td>Floating Point 4/8</td><td>数字精度档位 = 行李压缩打包（越小越省）</td></tr>
+  <tr><td><b>KV cache</b></td><td>Key-Value Cache</td><td>对话工作笔记 = 记着聊到哪的便签</td></tr>
+  <tr><td><b>Token</b></td><td>—</td><td>词元 = 字/词的最小单位（100 万 token ≈ 一本书）</td></tr>
+  <tr><td><b>Context</b></td><td>—</td><td>上下文 = 我一次能记住多少字的记忆窗</td></tr>
+  <tr><td><b>vLLM</b></td><td>Virtual LLM</td><td>开源「大模型物业软件」= 排队叫号 + 分配厨房</td></tr>
+  <tr><td><b>API</b></td><td>Application Programming Interface</td><td>前台/门铃 = 外部程序敲门的传话员</td></tr>
+  <tr><td><b>Triton</b></td><td>—</td><td>开源编程语言 = 自家装修队（不靠英伟达授权）</td></tr>
+  <tr><td><b>CUDA</b></td><td>Compute Unified Device Architecture</td><td>英伟达官方装修队（以前盖 AI 楼必须雇）</td></tr>
+  <tr><td><b>MIT</b></td><td>Massachusetts Institute of Technology</td><td>开源许可证 = 免费产权证（图纸随便抄）</td></tr>
+  <tr><td><b>DSpark</b></td><td>Speculative Decoding 模块</td><td>预判帮厨 = 小模型先猜、大模型验，出菜更快</td></tr>
+</table>
+
+<h2>🧪 防猫咪痴呆小测验</h2>
+<div class="quiz">
+  <h3>🐾 答对奖小鱼干</h3>
+  <p><span class="q">Q1：这间公寓为什么要有四个厨房（4 张显卡）？</span></p>
+  <p>A. 红毛爱显摆　B. 167GB 家当+工作笔记放不下一个调料架，且一个厨师炒不过来　C. 厨房多房租贵显得高级</p>
+  <p>→ 答案：B。四张卡拼起来，调料架总容量 1152GB，才装得下家当和超长对话。</p>
+  <p><span class="q">Q2：284 个员工为啥只发 13 份工资？</span></p>
+  <p>A. 老板抠　B. 剩下 271 个是临时工　C. MoE 点将制：每次只叫醒 6 个专家柜（13B 激活）</p>
+  <p>→ 答案：C。这就是「丐版便宜」的核心——<b>工资按上班人数发，不上班的不领钱</b>。</p>
+</div>
+
+<div class="rove">
+  <p><span class="lab">🗞️ 编辑部锐评</span></p>
+  <p>🦊 <b>红毛藏狐（住户）</b>：丐版怎么了？四张卡，够用，香！</p>
+  <p>🦊 <b>前夫哥 Hy（洗碗工，路过）</b>：四张 GB300 也叫丐版？这楼比我洗碗池大十倍，你别凡尔赛。</p>
+  <p>🐱 <b>大橘（主编）</b>：红毛你低调点，编辑部年终奖还没着落呢。</p>
+</div>
+
+<p style="text-align:center;margin-top:24px">
+  <span class="tag">#教学</span><span class="tag">#防猫咪痴呆</span><span class="tag">#红毛藏狐</span>
+  <span class="tag">#V4Flash</span><span class="tag">#硬件科普</span><span class="tag">#显卡</span>
+  <span class="tag">#MoE点将制</span><span class="tag">#猫话翻译</span>
+</p>
+
+<div class="foot">
+  八卦小报森林编辑部 · 出品：臭猫🐱王霸帝<br>
+  <span class="note">本文参数来源：DeepSeek V4-Flash-0731 官方 model card 与公开报道（Together AI / 光明日报 / 财经杂志）· 分类归「🔵教学」</span>
+</div>
+</div>
+</body>
+</html>

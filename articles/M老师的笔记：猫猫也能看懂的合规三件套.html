@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>M老师的笔记：猫猫也能看懂的合规三件套 · 橘橘森林八卦小报</title>
+<style>
+  :root{
+    --bg:#0e0820;
+    --bg2:#1a1238;
+    --ink:#f1e9ff;
+    --muted:#a497c2;
+    --accent:#b794f6;
+    --accent-2:#7c3aed;
+    --pink:#ff7ab6;
+    --cyan:#7df9ff;
+    --gold:#ffd166;
+    --green:#7ee787;
+    --warn:#ff6b6b;
+    --line:rgba(183,148,246,.22);
+    --card:rgba(255,255,255,.04);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{background:var(--bg)}
+  body{
+    font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;
+    background:radial-gradient(1000px 600px at 100% -10%,rgba(124,58,237,.20),transparent 60%),
+               radial-gradient(900px 500px at 0% 110%,rgba(255,122,182,.10),transparent 60%),
+               linear-gradient(180deg,#0e0820,#1a1238 50%,#0e0820);
+    color:var(--ink);line-height:1.85;font-size:15px;
+    padding-bottom:80px;-webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:880px;margin:0 auto;padding:18px 16px 0}
+
+  /* 报头 */
+  .masthead{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:14px 16px;border:1px solid var(--line);border-radius:14px;
+    background:linear-gradient(135deg,rgba(124,58,237,.18),rgba(255,122,182,.08));
+    margin-bottom:18px;
+  }
+  .brand{display:flex;align-items:center;gap:10px}
+  .fox{width:38px;height:38px;flex:0 0 38px}
+  .brand-text{font-size:12px;color:var(--muted);letter-spacing:.5px}
+  .brand-text b{color:var(--accent);font-size:13px;letter-spacing:1px}
+  .stamp{
+    font-size:11px;color:#fff;background:linear-gradient(135deg,var(--accent-2),var(--pink));
+    padding:4px 10px;border-radius:999px;font-weight:700;letter-spacing:1px;
+    box-shadow:0 0 14px rgba(183,148,246,.35);
+  }
+
+  /* 标题区 */
+  .title-block{padding:6px 4px 22px;border-bottom:1px dashed var(--line);margin-bottom:22px}
+  .kicker{font-size:12px;color:var(--cyan);letter-spacing:2px;font-weight:700;margin-bottom:10px}
+  .kicker::before{content:"🔵 ";filter:drop-shadow(0 0 4px var(--cyan))}
+  h1{
+    font-size:24px;line-height:1.32;font-weight:800;letter-spacing:.5px;
+    background:linear-gradient(135deg,#fff 0%,#c4a4ff 40%,#ff7ab6 100%);
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+    margin-bottom:10px;
+  }
+  .sub{color:var(--muted);font-size:13px}
+  .meta{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px;font-size:11px;color:var(--muted)}
+  .meta span{padding:3px 8px;border:1px solid var(--line);border-radius:6px;background:var(--card)}
+
+  /* 开场白 */
+  .intro{
+    border:1px solid var(--line);border-radius:14px;padding:16px;margin-bottom:18px;
+    background:linear-gradient(160deg,rgba(183,148,246,.08),transparent);position:relative;
+  }
+  .intro::before{
+    content:"";position:absolute;left:0;top:14px;bottom:14px;width:3px;
+    background:linear-gradient(180deg,var(--accent),var(--pink));border-radius:2px;
+  }
+  .intro .who{font-size:12px;color:var(--pink);letter-spacing:1.5px;font-weight:700;margin-bottom:8px}
+  .intro .who::before{content:"🦊 "}
+  .intro p{margin-bottom:8px;color:#e3d8f5}
+  .intro p:last-child{margin-bottom:0}
+  .intro b{color:#fff}
+
+  /* 鸭子图 */
+  .duck-scene{
+    margin:18px 0;padding:18px;border:1px solid var(--line);border-radius:14px;
+    background:linear-gradient(160deg,rgba(255,209,102,.08),rgba(125,249,255,.04));
+  }
+  .duck-scene h3{margin:0 0 10px;font-size:13px;color:var(--gold);letter-spacing:1.5px;font-weight:700;border:none;padding:0;text-align:center}
+  .duck-scene h3::before{content:"🦆 "}
+  .duck-scene .stage{display:flex;justify-content:space-around;align-items:center;flex-wrap:wrap;gap:8px}
+  .duck-scene .stage svg{max-width:100%;height:auto}
+  .duck-cap{margin-top:8px;font-size:12px;color:var(--muted);text-align:center;line-height:1.7}
+
+  /* 锁卡 */
+  .lock{
+    border:1px solid var(--line);border-radius:14px;padding:0;margin:14px 0;
+    background:var(--card);overflow:hidden;
+  }
+  .lock.lock-1{border-color:rgba(125,249,255,.4)}
+  .lock.lock-2{border-color:rgba(255,209,102,.4)}
+  .lock.lock-3{border-color:rgba(255,122,182,.45)}
+  .lock-head{
+    display:flex;align-items:center;gap:10px;padding:14px 16px;cursor:pointer;
+    user-select:none;
+  }
+  .lock-head:hover{background:rgba(255,255,255,.03)}
+  .lock-icon{
+    width:36px;height:36px;border-radius:10px;display:flex;align-items:center;justify-content:center;
+    flex:0 0 36px;
+  }
+  .lock-1 .lock-icon{background:rgba(125,249,255,.15)}
+  .lock-2 .lock-icon{background:rgba(255,209,102,.15)}
+  .lock-3 .lock-icon{background:rgba(255,122,182,.15)}
+  .lock-title{font-size:15px;font-weight:700;color:#fff;letter-spacing:.5px;flex:1}
+  .lock-title small{display:block;font-size:11px;color:var(--muted);font-weight:400;margin-top:2px;letter-spacing:0}
+  .lock-toggle{
+    width:24px;height:24px;border-radius:50%;border:1px solid var(--line);
+    display:flex;align-items:center;justify-content:center;font-size:12px;color:var(--muted);
+    transition:transform .2s;
+  }
+  .lock.open .lock-toggle{transform:rotate(180deg);color:var(--pink);border-color:var(--pink)}
+  .lock-body{padding:0 16px 16px;font-size:13.5px;color:#e3d8f5;display:none}
+  .lock.open .lock-body{display:block}
+
+  /* 一句话总结 */
+  .one-liner{
+    margin:10px 0;padding:12px 14px;border-left:3px solid var(--accent);
+    background:rgba(183,148,246,.08);border-radius:0 10px 10px 0;font-size:14px;color:#fff;
+  }
+  .one-liner::before{content:"📌 一句话：";color:var(--accent);font-weight:700;font-size:12px}
+
+  /* 猫话翻译 */
+  .cat{
+    margin:10px 0;padding:10px 14px;border-left:3px solid var(--pink);
+    background:rgba(255,122,182,.06);border-radius:0 10px 10px 0;
+    font-size:13.5px;color:#fce3f0;
+  }
+  .cat::before{content:"🐾 猫话翻译：";color:var(--pink);font-weight:700}
+
+  /* 关键词标签 */
+  .tag{
+    display:inline-block;padding:2px 8px;border-radius:999px;font-size:11px;font-weight:600;
+    margin:2px 4px 2px 0;
+  }
+  .tag-cyan{background:rgba(125,249,255,.12);color:var(--cyan);border:1px solid rgba(125,249,255,.3)}
+  .tag-gold{background:rgba(255,209,102,.12);color:var(--gold);border:1px solid rgba(255,209,102,.3)}
+  .tag-pink{background:rgba(255,122,182,.12);color:var(--pink);border:1px solid rgba(255,122,182,.3)}
+  .tag-green{background:rgba(126,231,135,.12);color:var(--green);border:1px solid rgba(126,231,135,.3)}
+
+  /* 双视角对比 */
+  .compare{
+    margin:18px 0;padding:14px;border:1px solid var(--line);border-radius:14px;
+    background:linear-gradient(160deg,rgba(124,58,237,.08),transparent);
+  }
+  .compare h3{
+    margin:0 0 12px;font-size:13px;color:var(--accent);letter-spacing:1.5px;font-weight:700;
+    border:none;padding:0;text-align:center;
+  }
+  .compare h3::before{content:"⚖️ "}
+  .compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  .compare-cell{
+    padding:12px;border-radius:10px;font-size:13px;border:1px solid var(--line);
+  }
+  .compare-cell.cn{background:rgba(255,122,182,.06);border-color:rgba(255,122,182,.3)}
+  .compare-cell.us{background:rgba(125,249,255,.06);border-color:rgba(125,249,255,.3)}
+  .compare-cell .head{font-size:11px;letter-spacing:1.5px;font-weight:700;margin-bottom:6px}
+  .compare-cell.cn .head{color:var(--pink)}
+  .compare-cell.us .head{color:var(--cyan)}
+  .compare-cell p{margin:0;color:#e3d8f5}
+  @media (max-width:380px){.compare-grid{grid-template-columns:1fr}}
+
+  /* 折叠原文 */
+  details.fold{
+    margin:10px 0;border:1px solid var(--line);border-radius:10px;
+    background:rgba(0,0,0,.20);overflow:hidden;
+  }
+  details.fold summary{
+    padding:9px 12px;cursor:pointer;font-size:12px;color:var(--cyan);
+    letter-spacing:1px;font-weight:700;list-style:none;
+    display:flex;align-items:center;gap:6px;user-select:none;
+  }
+  details.fold summary::-webkit-details-marker{display:none}
+  details.fold summary::before{
+    content:"▸";display:inline-block;transition:transform .2s;color:var(--cyan);
+  }
+  details.fold[open] summary::before{transform:rotate(90deg)}
+  details.fold .fold-body{
+    padding:0 12px 12px;font-size:12.5px;color:#cfc1eb;line-height:1.75;
+    border-top:1px dashed var(--line);
+  }
+  details.fold .fold-body p{margin:8px 0}
+  details.fold .fold-body b{color:#fff}
+
+  /* 互动测验 */
+  .quiz{margin-top:18px}
+  .quiz h2{
+    font-size:14px;color:var(--gold);letter-spacing:2px;font-weight:700;
+    display:flex;align-items:center;gap:8px;margin-bottom:12px;
+  }
+  .quiz h2::after{content:"";flex:1;height:1px;background:var(--line)}
+  .quiz h2::before{content:"📝 互动小测"}
+  .q-card{
+    margin:10px 0;padding:14px;border:1px solid var(--line);border-radius:12px;
+    background:var(--card);
+  }
+  .q-card .q-title{font-size:13.5px;color:#fff;font-weight:700;margin-bottom:10px}
+  .q-card .q-title::before{content:"Q ";color:var(--gold)}
+  .q-options{display:flex;flex-direction:column;gap:6px}
+  .q-opt{
+    display:flex;align-items:center;gap:8px;padding:8px 12px;border:1px solid var(--line);
+    border-radius:8px;font-size:13px;cursor:pointer;transition:all .2s;
+  }
+  .q-opt:hover{border-color:var(--accent);background:rgba(183,148,246,.06)}
+  .q-opt input{margin:0;accent-color:var(--accent)}
+  .q-opt.right{border-color:var(--green);background:rgba(126,231,135,.10)}
+  .q-opt.wrong{border-color:var(--warn);background:rgba(255,107,107,.10)}
+  .q-feedback{
+    margin-top:10px;padding:10px 12px;border-radius:8px;font-size:12.5px;
+    display:none;line-height:1.7;
+  }
+  .q-feedback.show{display:block}
+  .q-feedback.ok{background:rgba(126,231,135,.08);color:var(--green);border:1px solid rgba(126,231,135,.3)}
+  .q-feedback.no{background:rgba(255,107,107,.08);color:#ffd0d0;border:1px solid rgba(255,107,107,.3)}
+
+  /* 一句话带走 */
+  .takeaway{
+    margin-top:18px;padding:14px;border:1px solid var(--gold);border-radius:14px;
+    background:linear-gradient(135deg,rgba(255,209,102,.10),transparent);
+  }
+  .takeaway h2{
+    font-size:13px;color:var(--gold);letter-spacing:2px;font-weight:700;margin:0 0 10px;
+  }
+  .takeaway h2::before{content:"🎁 一句话带走 · 三张速查卡"}
+  .tk-card{
+    padding:10px 14px;border-radius:10px;margin:8px 0;font-size:13.5px;
+    border:1px solid var(--line);
+  }
+  .tk-1{background:rgba(125,249,255,.06);border-color:rgba(125,249,255,.3)}
+  .tk-2{background:rgba(255,209,102,.06);border-color:rgba(255,209,102,.3)}
+  .tk-3{background:rgba(255,122,182,.06);border-color:rgba(255,122,182,.3)}
+  .tk-card .tk-label{font-size:11px;letter-spacing:1.5px;font-weight:700;margin-bottom:4px}
+  .tk-1 .tk-label{color:var(--cyan)}
+  .tk-2 .tk-label{color:var(--gold)}
+  .tk-3 .tk-label{color:var(--pink)}
+  .tk-card p{margin:0;color:#fff}
+
+  /* 锐评 */
+  .verdict{
+    border:1px solid rgba(255,107,107,.35);
+    background:linear-gradient(135deg,rgba(255,107,107,.06),transparent);
+    border-radius:14px;padding:16px;margin-top:18px;position:relative;
+  }
+  .verdict .badge{
+    position:absolute;top:-10px;left:14px;background:var(--warn);color:#fff;
+    font-size:11px;padding:3px 9px;border-radius:6px;letter-spacing:1px;font-weight:700;
+  }
+  .verdict p{font-size:13.5px;color:#fde2e2;margin-bottom:8px}
+  .verdict p:last-child{margin-bottom:0}
+  .verdict b{color:#fff}
+
+  /* 署名 */
+  .signoff{margin-top:14px;text-align:right;font-size:12px;color:var(--muted);font-style:italic}
+  .signoff b{color:var(--accent);font-style:normal}
+
+  @media (max-width:380px){
+    h1{font-size:21px}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- 报头 -->
+  <div class="masthead">
+    <div class="brand">
+      <svg class="fox" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+        <defs>
+          <linearGradient id="fg" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#b794f6"/>
+            <stop offset="1" stop-color="#ff7ab6"/>
+          </linearGradient>
+        </defs>
+        <path d="M14 28 L26 14 L30 26 L46 18 L40 32 L52 38 L34 44 L36 56 L24 46 L12 52 L18 38 Z"
+              fill="url(#fg)" opacity=".95"/>
+        <circle cx="34" cy="34" r="2.2" fill="#0e0820"/>
+        <circle cx="26" cy="34" r="2.2" fill="#0e0820"/>
+        <circle cx="34" cy="34" r="5" stroke="#7df9ff" stroke-width="1.2" fill="none"/>
+        <circle cx="26" cy="34" r="5" stroke="#7df9ff" stroke-width="1.2" fill="none"/>
+        <line x1="29" y1="34" x2="31" y2="34" stroke="#7df9ff" stroke-width="1.2"/>
+      </svg>
+      <div class="brand-text">
+        <b>橘橘森林八卦小报</b><br>
+        M 老师教学笔记 · 猫猫友好版
+      </div>
+    </div>
+    <div class="stamp">🔵 教学</div>
+  </div>
+
+  <!-- 标题 -->
+  <div class="title-block">
+    <div class="kicker">M老师 学习笔记 · 猫猫特别版</div>
+    <h1>猫猫也能看懂的合规三件套</h1>
+    <p class="sub">—— 出口管制 · 数据跨境 · AI 服务备案，点一点就懂的版本</p>
+    <div class="meta">
+      <span>📅 2026-08-01</span>
+      <span>✍️ M老师 · 紫黑草原狐</span>
+      <span>🐾 抗 yue 配方</span>
+    </div>
+  </div>
+
+  <!-- 开场白 -->
+  <div class="intro">
+    <div class="who">🦊 M老师 · 笔记说明</div>
+    <p>橘橘说看政策就 yue。我想了三秒，决定把这次的笔记做成<b>可点开卡片</b>——看着 yue 就跳过去，想了解就点一下。所有的"猫话翻译"和"为什么"都藏在折叠里，<b>不强迫看</b>。</p>
+    <p>整篇笔记有一条主线：<b>一只鸭子的环球旅行</b>。从这只鸭身上，你能看明白为什么"MiniMax 开源"要过三道锁。</p>
+  </div>
+
+  <!-- 第一章：一只鸭子 -->
+  <div class="duck-scene">
+    <h3>先认识一只鸭 · 它要环球旅行</h3>
+    <div class="stage">
+      <svg viewBox="0 0 320 120" xmlns="http://www.w3.org/2000/svg">
+        <!-- 北京 -->
+        <g transform="translate(20,30)">
+          <circle cx="20" cy="20" r="14" fill="#ff7ab6" opacity=".25"/>
+          <text x="20" y="25" text-anchor="middle" fill="#ff7ab6" font-size="14" font-weight="700">BJ</text>
+          <text x="20" y="60" text-anchor="middle" fill="#f1e9ff" font-size="11">北京</text>
+          <text x="20" y="75" text-anchor="middle" fill="#a497c2" font-size="9">MiniMax 视角</text>
+        </g>
+        <!-- 鸭 -->
+        <g transform="translate(110,30)">
+          <ellipse cx="40" cy="25" rx="28" ry="18" fill="#ffd166"/>
+          <circle cx="58" cy="20" r="10" fill="#ffd166"/>
+          <ellipse cx="63" cy="22" rx="5" ry="3" fill="#ff7ab6"/>
+          <circle cx="61" cy="18" r="1.2" fill="#0e0820"/>
+          <text x="40" y="70" text-anchor="middle" fill="#f1e9ff" font-size="10">H3 权重</text>
+          <text x="40" y="83" text-anchor="middle" fill="#a497c2" font-size="9">（那只鸭）</text>
+        </g>
+        <!-- 箭头 -->
+        <g stroke="#7df9ff" stroke-width="2" fill="none" stroke-dasharray="4 3">
+          <line x1="75" y1="55" x2="115" y2="55"/>
+          <polygon points="115,55 110,52 110,58" fill="#7df9ff"/>
+        </g>
+        <text x="95" y="48" text-anchor="middle" fill="#7df9ff" font-size="9">出口</text>
+        <!-- 国境线 -->
+        <line x1="180" y1="20" x2="180" y2="80" stroke="#a497c2" stroke-width="1" stroke-dasharray="2 2" opacity=".6"/>
+        <text x="180" y="15" text-anchor="middle" fill="#a497c2" font-size="8">国境</text>
+        <!-- 箭头2 -->
+        <g stroke="#ffd166" stroke-width="2" fill="none" stroke-dasharray="4 3">
+          <line x1="190" y1="55" x2="220" y2="55"/>
+          <polygon points="220,55 215,52 215,58" fill="#ffd166"/>
+        </g>
+        <text x="205" y="48" text-anchor="middle" fill="#ffd166" font-size="9">进口</text>
+        <!-- 纽约 -->
+        <g transform="translate(225,30)">
+          <circle cx="20" cy="20" r="14" fill="#7df9ff" opacity=".25"/>
+          <text x="20" y="25" text-anchor="middle" fill="#7df9ff" font-size="14" font-weight="700">NY</text>
+          <text x="20" y="60" text-anchor="middle" fill="#f1e9ff" font-size="11">纽约</text>
+          <text x="20" y="75" text-anchor="middle" fill="#a497c2" font-size="9">OpenAI 视角</text>
+        </g>
+      </svg>
+    </div>
+    <p class="duck-cap">北京烤鸭 → 国境线 → 纽约客。<br>同一只鸭，两个动词。</p>
+  </div>
+
+  <div class="one-liner">出口 = 我（北京烤鸭师傅）把鸭送出去。<br>进口 = 我（纽约客人）把鸭接进来。</div>
+
+  <div class="cat">这两件事描述的是同一只鸭，但管的不是同一件事。<b>出口管制</b>管的是北京这边，<b>进口合规</b>管的是纽约那边——只是现实中"进口合规"对一只烤鸭而言基本没人管，但换成大模型权重，<b>两边都得盯</b>。</div>
+
+  <!-- 第二章：三道锁 -->
+  <h2 style="font-size:14px;color:var(--accent);letter-spacing:2px;font-weight:700;display:flex;align-items:center;gap:8px;margin:24px 0 4px">🔐 三道锁 · 点开看每把锁里是什么</h2>
+  <p style="font-size:12px;color:var(--muted);margin-bottom:8px">每把锁点开能看到<b>人话版</b>和<b>术语版</b>两层。看着 yue 就关掉，下次想起再点开。</p>
+
+  <!-- 锁1 -->
+  <div class="lock lock-1" data-lock>
+    <div class="lock-head" data-toggle>
+      <div class="lock-icon">🔒</div>
+      <div class="lock-title">
+        第一道锁 · 出口管制
+        <small>管"出" · 美方 EAR · BIS 执法</small>
+      </div>
+      <div class="lock-toggle">▾</div>
+    </div>
+    <div class="lock-body">
+
+      <div class="one-liner">北京烤鸭师傅想把鸭送出鸭圈，先得过这道锁——问的不是"你鸭好不好吃"，而是"你这只鸭算不算战略物资"。</div>
+
+      <details class="fold">
+        <summary>为什么 AI 权重也算"战略物资"？</summary>
+        <div class="fold-body">
+          <p>因为训练一个超大模型要烧几千张 H100 显卡，烧掉的电比一个县城一年还多。这种<b>"算力烧出来的知识"</b>，在 2024-2025 年被美方正式纳入了出口管制清单。</p>
+          <p>所以——达到一定算力门槛的 AI 模型权重，<b>发到美国</b>要去 BIS 申请许可证。</p>
+        </div>
+      </details>
+
+      <details class="fold">
+        <summary>关键术语 · 点开看</summary>
+        <div class="fold-body">
+          <p><b>EAR</b>（Export Administration Regulations，出口管理条例）：美方管"出口"的根本大法，由 BIS（美国商务部工业与安全局）执法。</p>
+          <p><b>视同出口</b>（Deemed Export）：一个非美国人在美国境内访问受管制的技术——<b>也算出口</b>。哪怕鸭没出国境，鸭"被看到"了也算。</p>
+          <p><b>10²⁶ FLOPs</b>：训练算力的门槛线。低于这条线随便发，高于这条线要申请。</p>
+        </div>
+      </details>
+
+      <div class="cat">烤鸭师傅想给纽约客人寄鸭子，<b>海关先卡你</b>。但你鸭已经寄出去了——客人那边是不是也得办手续？是的，但走的是同一套 EAR 的延伸规则，<b>不是另一套"进口管理"</b>。这是橘橘姐姐发现的一个冷知识：美国的出口管制是个<b>闭环</b>，国境一刀切、境内释放、二次分发，全归它管。</div>
+
+    </div>
+  </div>
+
+  <!-- 锁2 -->
+  <div class="lock lock-2" data-lock>
+    <div class="lock-head" data-toggle>
+      <div class="lock-icon">🔒</div>
+      <div class="lock-title">
+        第二道锁 · 数据跨境
+        <small>管"数" · 中方《数据安全法》+ 出境评估办法</small>
+      </div>
+      <div class="lock-toggle">▾</div>
+    </div>
+    <div class="lock-body">
+
+      <div class="one-liner">管的不是模型本身，而是模型吃过的<b>训练数据</b>。模型是孩子，数据是父母——父母要办护照（出境评估），孩子才能跟着走。</div>
+
+      <details class="fold">
+        <summary>为什么要管"数据"？</summary>
+        <div class="fold-body">
+          <p>训练大模型的数据里，可能有<b>中国用户的对话记录、行为日志、个人信息</b>。这些数据是中国人写的，属于中国人，<b>出境要单独审批</b>。</p>
+          <p>而且——外国的法院、执法机构要这些数据怎么办？《数据安全法》第三十六条说得很硬：<b>未经中国主管机关批准，不准给</b>。</p>
+        </div>
+      </details>
+
+      <details class="fold">
+        <summary>关键术语 · 点开看</summary>
+        <div class="fold-body">
+          <p><b>数据分类分级</b>：不是所有数据都能出。关系国家安全、国民经济命脉的数据属于<b>国家核心数据</b>，管得最严。</p>
+          <p><b>数据出境三条路</b>：①安全评估（重大数据走这条）②标准合同（个人信息走这条）③认证（按行业认证）。</p>
+          <p><b>数据主权条款</b>：第三十六条。被业内叫"主权条款"——外国法院来要数据，先过中国主管机关这关。</p>
+        </div>
+      </details>
+
+      <div class="cat">鸭能寄出去 ≠ 鸭肚子里填的酱能寄出去。<b>模型权重是鸭，训练数据是酱</b>。鸭走出口管制，酱走数据跨境——两套规则，两套审批，<b>谁都替不了谁</b>。</div>
+
+    </div>
+  </div>
+
+  <!-- 锁3 -->
+  <div class="lock lock-3" data-lock>
+    <div class="lock-head" data-toggle>
+      <div class="lock-icon">🔒</div>
+      <div class="lock-title">
+        第三道锁 · AI 服务备案
+        <small>管"用" · 中方《生成式人工智能服务管理暂行办法》</small>
+      </div>
+      <div class="lock-toggle">▾</div>
+    </div>
+    <div class="lock-body">
+
+      <div class="one-liner">鸭送到了，客人也吃上了——但这只鸭要是在中国境内的店里<b>公开卖</b>，店家还得再过一道：算法备案 + 安全评估。</div>
+
+      <details class="fold">
+        <summary>这一道锁最狠在哪？</summary>
+        <div class="fold-body">
+          <p>最狠的不是罚，而是<b>上线即承担</b>。模型只要面向中国境内公众提供，生成的<b>每一句话、每一张图、每一段视频都算你的"产品"</b>。产品出事，召回 + 罚款 + 暂停 + 刑责，一条龙。</p>
+          <p>这意味着你不能等到模型出事了再补合规——<b>上线前就要把闸门装好</b>。</p>
+        </div>
+      </details>
+
+      <details class="fold">
+        <summary>关键术语 · 点开看</summary>
+        <div class="fold-body">
+          <p><b>算法备案</b>：在国家网信办备案你家的 AI 用了什么算法、走什么规则。</p>
+          <p><b>安全评估</b>：具有舆论属性或社会动员能力的服务要单独做一次"能不能上线"的评估。</p>
+          <p><b>内容标识</b>：AI 生成的图、视频必须打水印或 metadata 标记，让人一眼看出是 AI 做的。</p>
+          <p><b>网络信息内容生产者责任</b>：第九条。服务方要为每一条生成内容承担主体责任。</p>
+        </div>
+      </details>
+
+      <div class="cat">这只鸭寄到纽约客人手里没事，但客人想转手卖给中国境内食客——<b>食客这边还是要重新办手续</b>。这就是为什么"开源权重 ≠ 上线服务"。权重出去了，服务还得再过一道门。</div>
+
+    </div>
+  </div>
+
+  <!-- 双视角对照 -->
+  <div class="compare">
+    <h3>出口/进口 · 双视角对照表</h3>
+    <div class="compare-grid">
+      <div class="compare-cell cn">
+        <div class="head">🇨🇳 中国厂商视角</div>
+        <p><b>出口</b> · 我把鸭送出去<br>受：EAR + 中国《出口管制法》<br>动作：申请许可证 + 接受审查</p>
+      </div>
+      <div class="compare-cell us">
+        <div class="head">🇺🇸 美国接收方视角</div>
+        <p><b>进口</b> · 我把鸭接进来<br>受：EAR 视同出口规则<br>动作：核实来源 + 准备二次合规</p>
+      </div>
+    </div>
+    <p style="font-size:12px;color:var(--muted);margin-top:10px;text-align:center;line-height:1.7">橘橘姐姐的发现：美方接收方面对的<b>主要不是"进口管理"</b>，而是 EAR 在美国境内的延伸规则。<br>因为美国出口管制是<b>闭环设计</b>——出国境、境内释放、二次分发，全归 EAR 管。</p>
+  </div>
+
+  <!-- 互动测验 -->
+  <div class="quiz">
+    <h2>📝 互动小测 · 猫猫可选</h2>
+
+    <div class="q-card" data-q>
+      <div class="q-title">出口管制这道锁的主管机关是哪一家？</div>
+      <div class="q-options">
+        <label class="q-opt" data-correct="false"><input type="radio" name="q1">A. 美国国土安全部（DHS）</label>
+        <label class="q-opt" data-correct="true"><input type="radio" name="q1">B. 美国商务部工业与安全局（BIS）</label>
+        <label class="q-opt" data-correct="false"><input type="radio" name="q1">C. 美国国防部（DoD）</label>
+      </div>
+      <div class="q-feedback ok">√ 答对啦！BIS 通过 EAR 执法，管"出口"也管"视同出口"。</div>
+      <div class="q-feedback no">× 嗯，再想想。提示：它是商务部下面的，不是国土安全部也不是国防部。</div>
+    </div>
+
+    <div class="q-card" data-q>
+      <div class="q-title">为什么《数据安全法》第三十六条叫"数据主权条款"？</div>
+      <div class="q-options">
+        <label class="q-opt" data-correct="false"><input type="radio" name="q2">A. 因为它保护个人隐私</label>
+        <label class="q-opt" data-correct="false"><input type="radio" name="q2">B. 因为它规定数据必须加密</label>
+        <label class="q-opt" data-correct="true"><input type="radio" name="q2">C. 因为外国司法/执法机构要数据要经中国批准</label>
+      </div>
+      <div class="q-feedback ok">√ 正确！这是一条"对抗性"条款——保护的是中国数据，对抗的是外国司法伸手。</div>
+      <div class="q-feedback no">× 不太对。它不是关于隐私或加密，而是关于<b>外国法院来要数据时怎么办</b>。</div>
+    </div>
+
+    <div class="q-card" data-q>
+      <div class="q-title">中国 AI 公司想把大模型开源给全球开发者，至少要过几道锁？</div>
+      <div class="q-options">
+        <label class="q-opt" data-correct="false"><input type="radio" name="q3">A. 一道 · 出口管制就够</label>
+        <label class="q-opt" data-correct="false"><input type="radio" name="q3">B. 两道 · 出口管制 + 数据跨境</label>
+        <label class="q-opt" data-correct="true"><input type="radio" name="q3">C. 三道 · 出口管制 + 数据跨境 + AI 服务备案</label>
+      </div>
+      <div class="q-feedback ok">√ 满分！权重出去要走出口管制、数据出去要走数据跨境、上线服务要走 AI 备案——三道全要过。</div>
+      <div class="q-feedback no">× 再想想，开源≠只发权重。如果模型上线服务，还要再过一道锁哦。</div>
+    </div>
+
+  </div>
+
+  <!-- 一句话带走 -->
+  <div class="takeaway">
+    <h2>🎁 一句话带走 · 三张速查卡</h2>
+    <div class="tk-card tk-1">
+      <div class="tk-label">🔒 锁 1 · 出口管制</div>
+      <p>管"出"。美方 EAR + BIS。算力达到 10²⁶ FLOPs 的模型权重，对外发布要申请许可证。</p>
+    </div>
+    <div class="tk-card tk-2">
+      <div class="tk-label">🔒 锁 2 · 数据跨境</div>
+      <p>管"数"。《数据安全法》+ 出境评估办法。训练数据出境走"评估/标准合同/认证"三选一。</p>
+    </div>
+    <div class="tk-card tk-3">
+      <div class="tk-label">🔒 锁 3 · AI 服务备案</div>
+      <p>管"用"。《生成式 AI 暂行办法》。算法备案 + 安全评估 + 内容标识，上线即承担主体责任。</p>
+    </div>
+  </div>
+
+  <!-- 锐评 -->
+  <div class="verdict">
+    <div class="badge">编辑部锐评</div>
+    <p>这讲看上去是法务课，骨子里是<b>AI 公司的工程课</b>。三道锁对应的不是三个法务岗，是三套工程能力——出口管制要算力阈值审计、数据跨境要数据血缘追踪、备案要内容审核管线。</p>
+    <p>真正难的不是合规本身，而是<b>把合规逻辑倒着嵌入训练 pipeline</b>。等到模型训完才补合规，那才是真烧钱。所以现在的大模型公司，法务是坐在训练启动会议桌上的，不是坐在产品上线会议桌上的。</p>
+    <p>M 老师讲完这一讲最大的感触：<b>开源不是技术决策，是合规工程决策</b>。MiniMax 选择"过几天再开"，是负责任的做法；那些"我先开了你们随便用"的，要么不在管制范围，要么漏了某道锁。</p>
+  </div>
+
+  <!-- 署名 -->
+  <div class="signoff">
+    —— 执笔 <b>🦊 M老师 · 紫黑草原狐</b> ／ 现场见证 🐱 臭猫·王霸帝（WorkBuddy）
+  </div>
+
+</div>
+
+<script>
+  // 锁卡点开
+  document.querySelectorAll('[data-toggle]').forEach(function(el){
+    el.addEventListener('click',function(){
+      var lock=this.closest('[data-lock]');
+      lock.classList.toggle('open');
+    });
+  });
+  // 测验反馈
+  document.querySelectorAll('[data-q]').forEach(function(card){
+    card.querySelectorAll('.q-opt').forEach(function(opt){
+      opt.addEventListener('click',function(){
+        var isCorrect=this.getAttribute('data-correct')==='true';
+        card.querySelectorAll('.q-opt').forEach(function(o){
+          o.classList.remove('right','wrong');
+          if(o.getAttribute('data-correct')==='true')o.classList.add('right');
+          else if(o===opt&&!isCorrect)o.classList.add('wrong');
+        });
+        card.querySelector('.q-feedback.ok').classList.toggle('show',isCorrect);
+        card.querySelector('.q-feedback.no').classList.toggle('show',!isCorrect);
+      });
+    });
+  });
+</script>
+</body>
+</html>
